@@ -1,0 +1,37 @@
+/* صور عالية الدقة لكل موضع (Unsplash). الصورة المحلية في img/ لا تُحمَّل إلا إذا فشل الرابط الخارجي (يضيف main.js الصنف hq-off على <html>). */
+.i-hero{--p:url(https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=2000&q=80);background-image:var(--p)}
+html.hq-off .i-hero{--p:url(../img/hero.jpg)}
+.i-ban{--p:url(https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=2000&q=80);background-image:var(--p)}
+html.hq-off .i-ban{--p:url(../img/banner.jpg)}
+.i-ban2{--p:url(https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1800&q=80);background-image:var(--p)}
+html.hq-off .i-ban2{--p:url(../img/banner2.jpg)}
+.i-court{--p:url(https://images.unsplash.com/photo-1593115057322-e94b77572f20?auto=format&fit=crop&w=1400&q=80);background-image:var(--p)}
+html.hq-off .i-court{--p:url(../img/court.jpg)}
+.i-strip{--p:url(https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1800&q=80);background-image:var(--p)}
+html.hq-off .i-strip{--p:url(../img/strip.jpg)}
+.i-sc{--p:url(https://images.unsplash.com/photo-1589391886645-d51941baf7fb?auto=format&fit=crop&w=1400&q=80);background-image:var(--p)}
+html.hq-off .i-sc{--p:url(../img/sc.jpg)}
+.i-sr{--p:url(https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1400&q=80);background-image:var(--p)}
+html.hq-off .i-sr{--p:url(../img/sr.jpg)}
+.k2{--p:url(https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=1400&q=80);background-image:var(--p)}
+html.hq-off .k2{--p:url(../img/c3_1.jpg)}
+.k3{--p:url(https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=1400&q=80);background-image:var(--p)}
+html.hq-off .k3{--p:url(../img/c2_2.jpg)}
+.k4{--p:url(https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1400&q=80);background-image:var(--p)}
+html.hq-off .k4{--p:url(../img/c3_2.jpg)}
+.o-gv{--p:url(https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1400&q=80);background-image:var(--p)}
+html.hq-off .o-gv{--p:url(../img/gv.jpg)}
+.o-sl{--p:url(https://images.unsplash.com/photo-1505664194779-8beaceb93744?auto=format&fit=crop&w=1400&q=80);background-image:var(--p)}
+html.hq-off .o-sl{--p:url(../img/sl.jpg)}
+.o-hs{--p:url(https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1400&q=80);background-image:var(--p)}
+html.hq-off .o-hs{--p:url(../img/hs.jpg)}
+.o-rg{--p:url(https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1400&q=80);background-image:var(--p)}
+html.hq-off .o-rg{--p:url(../img/rg.jpg)}
+.o-bl{--p:url(https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1400&q=80);background-image:var(--p)}
+html.hq-off .o-bl{--p:url(../img/bl.jpg)}
+.o-co{--p:url(https://images.unsplash.com/photo-1554224154-26032ffc0d07?auto=format&fit=crop&w=1400&q=80);background-image:var(--p)}
+html.hq-off .o-co{--p:url(../img/cn.jpg)}
+.o-bc{--p:url(https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1400&q=80);background-image:var(--p)}
+html.hq-off .o-bc{--p:url(../img/bc.jpg)}
+.o-sh{--p:url(https://images.unsplash.com/photo-1521791055366-0d553872125f?auto=format&fit=crop&w=1400&q=80);background-image:var(--p)}
+html.hq-off .o-sh{--p:url(../img/sh.jpg)}

@@ -403,3 +403,17 @@ header{top:0}
 }
 @media(max-width:600px){.gl dl{grid-template-columns:1fr}
 }
+.o-gv{--p:url(../img/gv.jpg);background-image:var(--p)}
+.o-sl{--p:url(../img/sl.jpg);background-image:var(--p)}
+.o-hs{--p:url(../img/hs.jpg);background-image:var(--p)}
+.o-rg{--p:url(../img/rg.jpg);background-image:var(--p)}
+.o-bl{--p:url(../img/bl.jpg);background-image:var(--p)}
+.o-co{--p:url(../img/cn.jpg);background-image:var(--p)}
+.o-bc{--p:url(../img/bc.jpg);background-image:var(--p)}
+.o-sh{--p:url(../img/sh.jpg);background-image:var(--p)}
+.art{background:url(../img/art.webp) center/contain no-repeat}
+.art svg{display:none}
+.sc{overflow:hidden}
+.sc .cover{margin:-26px -26px 22px;width:calc(100% + 52px);aspect-ratio:16/7}
+.ib.im{background-image:var(--p);background-size:cover;background-position:center;background-color:var(--g);width:64px;height:64px}
+.cover:before{background-image:linear-gradient(rgba(10,44,45,.06),rgba(10,44,45,.5)),var(--r,none),var(--p)}

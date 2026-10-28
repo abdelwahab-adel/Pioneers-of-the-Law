@@ -256,3 +256,103 @@
     if (e.key === 'Escape' && overlay.classList.contains('o')) closeSearch();
   });
 })();
+
+/* حركة بسيطة: ظهور العناصر عند التمرير + عدّ تصاعدي للأرقام */
+(function () {
+  'use strict';
+  var calm = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (calm || !('IntersectionObserver' in window)) return;
+  var sel = 'section:not(.hr2) :is(.lb,.h2,.pc,.cc,.ar,.tm,.pk,.qb,.sc,.wcd,.tl li,.jr li,.mt>div,.st>div,.ix,.gl,.pt)';
+  var io = new IntersectionObserver(function (es) {
+    es.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      var t = e.target; t.classList.add('in'); io.unobserve(t); setTimeout(function () { t.style.transitionDelay = ''; }, 1200);
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+  [].forEach.call(document.querySelectorAll(sel), function (el, i) {
+    el.classList.add('rv'); el.style.transitionDelay = (i % 4) * 70 + 'ms'; io.observe(el);
+  });
+  var co = new IntersectionObserver(function (es) {
+    es.forEach(function (e) {
+      if (!e.isIntersecting) return; co.unobserve(e.target);
+      var el = e.target, txt = el.textContent, n = parseInt(txt, 10);
+      if (isNaN(n)) return;
+      var tail = txt.replace(/^\d+/, ''), t0 = performance.now();
+      (function step(t) {
+        var k = Math.min(1, (t - t0) / 1200);
+        el.textContent = Math.round(n * (1 - Math.pow(1 - k, 3))) + tail;
+        if (k < 1) requestAnimationFrame(step); else el.textContent = txt;
+      })(t0);
+    });
+  }, { threshold: 0.6 });
+  [].forEach.call(document.querySelectorAll('.st b bdi'), function (b) { co.observe(b); });
+})();
+
+/* شريط تقدّم القراءة */
+(function () {
+  'use strict';
+  if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var bar = document.createElement('div'); bar.id = 'pg'; bar.setAttribute('aria-hidden', 'true'); document.body.appendChild(bar);
+  var raf = 0;
+  function upd() {
+    raf = 0; var d = document.documentElement, m = d.scrollHeight - innerHeight;
+    bar.style.transform = 'scaleX(' + (m > 0 ? Math.min(1, scrollY / m) : 0) + ')';
+  }
+  addEventListener('scroll', function () { if (!raf) raf = requestAnimationFrame(upd); }, { passive: true }); upd();
+})();
+
+/* حرف الاسم الأول على لوحات الفريق */
+(function () {
+  'use strict';
+  [].forEach.call(document.querySelectorAll('#team .tm'), function (t) {
+    var h = t.querySelector('h3'), p = t.querySelector('.pt2');
+    if (h && p) p.setAttribute('data-i', h.textContent.trim().charAt(0));
+  });
+})();
+
+/* شبكة أمان: أي عنصر متحرك تجاوزه المستخدم بتمرير سريع يُظهَر فورًا */
+(function () {
+  'use strict';
+  var raf = 0;
+  function flush() {
+    raf = 0;
+    [].forEach.call(document.querySelectorAll('.rv:not(.in)'), function (el) {
+      if (el.getBoundingClientRect().bottom < 0) el.classList.add('in');
+    });
+  }
+  addEventListener('scroll', function () { if (!raf) raf = requestAnimationFrame(flush); }, { passive: true });
+})();
+
+/* قائمة الجوال: حالة aria-expanded، وإغلاق بمفتاح Escape أو بالنقر خارجها */
+(function () {
+  'use strict';
+  var bm = document.querySelector('.bm'), bar = document.querySelector('.hd'), nav = document.querySelector('.nv');
+  if (!bm || !bar || !nav) return;
+  nav.id = nav.id || 'nav-main';
+  bm.setAttribute('aria-controls', nav.id);
+  function sync() { bm.setAttribute('aria-expanded', String(bar.classList.contains('o'))); }
+  sync();
+  new MutationObserver(sync).observe(bar, { attributes: true, attributeFilter: ['class'] });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && bar.classList.contains('o')) { bar.classList.remove('o'); bm.focus(); }
+  });
+  document.addEventListener('click', function (e) {
+    if (bar.classList.contains('o') && !e.target.closest('.hd')) bar.classList.remove('o');
+  });
+})();
+
+/* الصور العالية الدقة: إن تعذّر تحميل الرابط الخارجي نعود للصور المحلية دون تحميل الاثنتين معًا */
+(function () {
+  'use strict';
+  var probe = new Image();
+  probe.onerror = function () { document.documentElement.classList.add('hq-off'); };
+  probe.src = "https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=2000&q=80";
+})();
+
+/* إظهار زر واتساب العائم بعد تجاوز الهيرو (يُطبَّق على الهاتف فقط عبر CSS) */
+(function () {
+  'use strict';
+  var root = document.documentElement;
+  function t() { root.classList.toggle('sc-fb', window.scrollY > 480); }
+  window.addEventListener('scroll', t, { passive: true }); t();
+})();

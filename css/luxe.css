@@ -1,0 +1,232 @@
+/* رواد القانون — طبقة التحسين البصري (تُحمَّل بعد style.css) */
+:root{--au:#b8aa66;--au-d:#8a6d1f;--au-l:#e4d39a;--serif:"Amiri","Noto Naskh Arabic","IBM Plex Sans Arabic",serif}
+html{overflow-x:clip;scroll-padding-top:92px}
+body{text-rendering:optimizeLegibility}
+.skip{position:absolute;inset-inline-start:12px;top:-64px;background:var(--g);color:#fff;padding:10px 18px;z-index:200}
+.skip:focus{top:8px}
+:focus-visible{outline:3px solid var(--au-d);outline-offset:3px}
+.g :focus-visible,.urg :focus-visible,.bn :focus-visible,footer :focus-visible{outline-color:var(--au-l)}
+
+/* الترويسة: نحافظ على سلوكها الأصلي (شفافة فوق الهيرو، ثم كريمية عند التمرير) ونحسّن الشعار فقط */
+.br b{font-family:var(--serif);font-size:28px}
+
+/* الطباعة والتسلسل الهرمي */
+.h1,.h2,.sht,.pc h3,.cc h3,.ar h3,.tm h3,.pk h3,.st b,.yr,.qb p,.qt{font-family:var(--serif)}
+.h1{font-size:clamp(36px,5.2vw,66px);line-height:1.4;font-weight:700}
+.h2{font-size:clamp(28px,3.4vw,44px);line-height:1.5;font-weight:700}
+.pc h3,.cc h3,.ar h3,.tm h3,.pk h3{font-size:23px;line-height:1.5}
+.ld,.cb p,.shd{line-height:1.95}
+.c .lb{color:#6b5b24;opacity:1;font-weight:600}
+.g .lb,.bn .lb,.hr2 .lb{color:var(--au-l);opacity:1;font-weight:600}
+.urg .lb{color:#6b5b24;opacity:1;font-weight:600}
+.hr2 .bt.f,.hr2 .bt.f:hover{background:var(--au-l);color:var(--g);border-color:var(--au-l)}
+.g .ld,.g .cb p{color:#dbe3e0}
+.st b{font-size:clamp(42px,5vw,64px);color:var(--au-l);line-height:1.2}
+.qb p,.qt{font-size:21px;line-height:2.05}
+
+/* الأزرار والعناصر التفاعلية */
+.bt{min-height:46px;display:inline-flex;align-items:center;justify-content:center;transition:background-color .2s,color .2s,border-color .2s}
+.bt.f:hover{background:var(--au-d);border-color:var(--au-d);color:#fff;opacity:1}
+.g .bt.f:hover,.bn .bt.f:hover{background:var(--au-l);border-color:var(--au-l);color:var(--g)}
+.fl button{min-height:42px;padding-inline:18px}
+.lk{min-height:32px}
+
+/* البطاقات: كل نوع بمعالجة مختلفة */
+.pc,.ar{border-top:3px solid transparent;transition:border-color .2s}
+.pc:hover,.ar:hover{border-top-color:var(--au-d)}
+.cc{border-inline-start:4px solid var(--au-d)}
+.qb{border-inline-start:3px solid var(--au);padding-inline-start:28px}
+.pk.ft{outline:2px solid var(--au-d);outline-offset:-2px}
+.tm h3{margin-top:14px}
+.dt[open]>summary{margin-bottom:6px}
+
+/* النماذج */
+.fm input,.fm select,.si,#ss{min-height:48px;padding-inline:14px;border:1px solid #7d7d74;background:#fff;color:var(--ink);font:inherit}
+.fm input:focus,.fm select:focus,.si:focus,#ss:focus{border-color:var(--g);outline:2px solid var(--au-d);outline-offset:1px}
+.er{color:#8f1d1d;font-weight:600}
+
+/* لحظة الحركة الوحيدة: ظهور محتوى الهيرو */
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.sl1:not([hidden])>*{animation:rise .7s cubic-bezier(.2,.7,.2,1) both}
+.sl1:not([hidden])>:nth-child(2){animation-delay:.12s}
+.sl1:not([hidden])>:nth-child(3){animation-delay:.24s}
+.sl1:not([hidden])>:nth-child(4){animation-delay:.36s}
+@media(prefers-reduced-motion:reduce){.sl1>*{animation:none!important}html{scroll-behavior:auto}}
+
+@media(max-width:760px){.s{padding:64px 0}.w{width:calc(100% - 32px)}.h1{font-size:34px}.br b{font-size:24px}.qb p,.qt{font-size:19px}}
+
+/* صناديق المعلومات */
+.ix{margin-top:44px;max-width:780px;padding:18px 26px;border-inline-start:4px solid var(--au-d);background:rgba(184,170,102,.16)}
+.ix b{display:block;font-family:var(--serif);font-size:20px;margin-bottom:4px}
+.ix p{font-size:15px;line-height:1.95;color:inherit;margin:0;max-width:none}
+.g .ix{background:rgba(255,255,255,.08);border-inline-start-color:var(--au-l)}
+.two .ix{margin-top:28px}
+/* ظهور هادئ عند التمرير */
+.rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
+
+/* ===== حركات إضافية (تُعطَّل مع تفضيل تقليل الحركة) ===== */
+#pg{position:fixed;top:0;inset-inline:0;height:3px;background:linear-gradient(90deg,var(--au-d),var(--au-l));transform:scaleX(0);transform-origin:100% 50%;z-index:90;pointer-events:none}
+@media(prefers-reduced-motion:no-preference){
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+@keyframes shine{from{background-position:200% 0}to{background-position:-200% 0}}
+@keyframes ring{0%{box-shadow:0 0 0 0 rgba(184,170,102,.6)}100%{box-shadow:0 0 0 16px rgba(184,170,102,0)}}
+.hr2 .art{animation:float 7s ease-in-out infinite}
+.hr2 .h1 span{display:inline-block;padding-block:.1em .28em;background:linear-gradient(100deg,#b8aa66 30%,#f3e6ac 50%,#b8aa66 70%) 0 0/200% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;animation:shine 6s linear infinite}
+.bt.f{position:relative;overflow:hidden}
+.bt.f::after{content:"";position:absolute;inset:0;background:linear-gradient(105deg,transparent 35%,rgba(255,255,255,.4) 50%,transparent 65%);transform:translateX(-130%);transition:transform .65s ease;pointer-events:none}
+.bt.f:hover::after{transform:translateX(130%)}
+.nv ul a{background:linear-gradient(currentColor,currentColor) no-repeat 100% 100%/0 2px;padding-block:6px;transition:background-size .3s ease}
+.nv ul a:hover{background-size:100% 2px;opacity:1}
+.pk,.tm,.sc,.wcd,.qb,.cc,.ar{transition:opacity .6s ease,transform .6s ease,translate .3s ease,box-shadow .3s ease}
+.pk:hover,.tm:hover,.sc:hover,.wcd:hover,.qb:hover,.cc:hover,.ar:hover{translate:0 -6px;box-shadow:0 16px 36px rgba(10,44,45,.2)}
+.jr li.in .dot{animation:ring 1.6s ease-out 2}
+.dt[open]>:not(summary),.fq details[open]>p{animation:rise .4s ease both}
+.st>div.in b{animation:rise .8s ease both}
+}
+
+/* ===== تحسين شامل للتصميم والجوال ===== */
+::selection{background:var(--au-l);color:var(--g)}
+.h2{text-wrap:balance}
+.ld,.cb p,.shd{text-wrap:pretty}
+.ld{max-width:64ch}
+.s{padding-block:clamp(64px,8vw,112px)}
+.cover,.im{background-color:#0a2c2d}
+footer a:hover{color:var(--au-l);opacity:1}
+.stx .st b{text-shadow:0 2px 16px rgba(0,0,0,.55)}
+.stx .st span{color:#fff}
+.fq summary{padding-block:16px}
+
+@media(max-width:960px){
+  #sectors .two{grid-template-columns:1fr!important;gap:28px!important}
+  #sectors .side{height:220px;min-height:220px;position:static}
+}
+@media(max-width:760px){
+  .fb{width:54px;height:54px;padding:0;border-radius:50%;display:grid;place-items:center;font-size:0;line-height:0;gap:0;bottom:calc(16px + env(safe-area-inset-bottom,0px))}
+  .fb svg{width:26px;height:26px}
+  #team .g4{grid-template-columns:1fr 1fr;gap:28px 14px}
+  #team .pt2{aspect-ratio:1/1}
+  #team .tm h3{font-size:18px}
+  #team .tm p,#team .tm em{font-size:13px;line-height:1.7}
+  #sectors .gr.g2{grid-template-columns:1fr}
+  .fg{grid-template-columns:1fr 1fr;gap:32px 20px}
+  .fg>div:first-child,.fg>div:last-child{grid-column:1/-1}
+  .hb{gap:12px}
+  .hb .bt{flex:1 1 140px}
+  .ix{padding:16px 18px;margin-top:32px}
+  .lb{margin-bottom:8px}
+  .pk,.tm,.sc,.wcd,.qb,.cc,.ar{box-shadow:none}
+}
+@media(max-width:380px){.h1{font-size:30px}.br b{font-size:22px}.w{width:calc(100% - 28px)}}
+
+/* بانر الدعوة: طبقة تعتيم لوضوح النص فوق الصورة */
+.bn{position:relative;isolation:isolate}
+.bn::before{content:"";position:absolute;inset:0;background:rgba(6,30,31,.58);z-index:-1}
+.bn .ctt{margin-top:36px}
+@media(max-width:760px){
+  .wc{grid-template-columns:1fr 1fr;gap:28px 14px}
+  .wph{aspect-ratio:1/1}
+  .wcd h3{font-size:16px}
+  .wcd p{font-size:13px}
+  .qb{padding-top:46px}
+  .qb:before{font-size:56px;top:4px}
+  .bn{padding:48px 20px}
+  .bn .bt{flex:1 1 150px}
+}
+
+/* ===== مرحلة التصميم: ترتيب هرمي وتناسق ===== */
+/* 1) رأس القسم: محاذاة موحّدة (بداية السطر) وتخطيط تحريري بعمودين على الشاشات الكبيرة */
+.hd2{text-align:start;max-width:none;margin-inline:0}
+.hd2 .ld{margin-inline:0}
+@media(min-width:961px){
+  .hd2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:80px;row-gap:16px;align-items:start}
+  .hd2>.lb{grid-column:1/-1;margin:0}
+  .hd2>.h2{grid-column:1}
+  .hd2>.ld,.hd2>.bt{grid-column:2;margin:0;max-width:none}
+  .hd2>.ld{grid-row:2}
+  .hd2>.bt{justify-self:start;margin-top:8px}
+}
+/* 2) حذف زخارف بلا معنى: ترقيم المجالات (ليست تسلسلاً) وتسمية «نبذة عن الخدمة» المكررة */
+.pc .cn,.pc .cb>h4.sl{display:none}
+/* 3) أرقام الإنجازات: وضوح وتباعد وطبقة تعتيم فوق الصورة */
+.stx{position:relative;isolation:isolate}
+.stx::before{content:"";position:absolute;inset:0;background:rgba(6,30,31,.6);z-index:-1}
+.st b{display:block;font-family:inherit;font-weight:600;line-height:1.15;margin-bottom:10px;letter-spacing:0}
+/* 4) بطاقات الفريق: لوحة بحرف الاسم الأول إلى حين توفّر صور معتمدة */
+#team .pt2{aspect-ratio:1/1;align-items:center;background:radial-gradient(circle at 50% 30%,#1f5753,#0a2c2d 72%)}
+#team .pt2 svg{display:none}
+#team .pt2::before{content:attr(data-i);position:absolute;inset:0;display:grid;place-items:center;padding-bottom:.08em;font-family:var(--serif);font-size:clamp(76px,8vw,116px);font-weight:700;color:var(--au-l);line-height:1}
+#team .tm em{display:inline-block;margin-top:6px;font-style:normal;font-size:13px;font-weight:600;color:var(--au-d)}
+
+/* الأسئلة الشائعة: عمودان على الشاشات الكبيرة (العنوان والبحث | القائمة) */
+@media(min-width:961px){
+  #faq .w{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,7fr);grid-template-rows:repeat(4,auto) 1fr;column-gap:72px;align-items:start}
+  #faq .w>.lb,#faq .w>.h2,#faq .w>.ld,#faq .w>.si{grid-column:1}
+  #faq .w>.si{margin-top:14px}
+  #faq .w>.fq{grid-column:2;grid-row:1/6;margin-top:0;max-width:none}
+  #faq .w>.gl,#faq .w>.ix{grid-column:1/-1}
+  #faq .w>.ix{max-width:none}
+}
+
+/* المنهجية: أرقام المراحل كاملة بدل أن تُقصّ من النصف */
+.mt .nu{height:auto;overflow:visible;line-height:1.1;margin-top:18px;font-family:var(--serif);font-size:clamp(56px,5.2vw,84px);font-weight:700;color:rgba(138,109,31,.32)}
+.mt h3{margin-top:8px}
+
+/* تباين الحواشي فوق الخلفيات الداكنة */
+.g .fn{color:#d3dcd9}
+
+/* رحلة العميل على الهاتف: مخطط عمودي بخط ربط بدل الشريط الأفقي المنهار */
+@media(max-width:600px){
+  .jr{gap:0;margin-top:36px}
+  .jr li{position:relative;display:flex;align-items:center;gap:16px;border-top:0;padding-bottom:28px}
+  .jr li:not(:last-child)::after{content:"";position:absolute;inset-inline-start:17px;top:36px;bottom:0;width:2px;background:rgba(10,44,45,.28)}
+  .jr .dot{margin:0;flex:none}
+  .jr b{font-size:16px}
+}
+
+/* ===== الصفحة الرئيسية: من نحن، الشريك المدير، لماذا نحن، الاعتمادات ===== */
+.frm{position:relative}
+.bdg{position:absolute;inset-inline-start:22px;bottom:22px;max-width:260px;padding:14px 20px;background:var(--g);color:#fff;border-inline-start:4px solid var(--au)}
+.bdg b{display:block;font-family:var(--serif);font-size:38px;line-height:1.1;color:var(--au-l)}
+.bdg small{display:block;margin-top:4px;font-size:13px;line-height:1.6}
+.tp{padding-inline-start:18px;border-inline-start:3px solid var(--au);font-size:17px;line-height:2;margin-block:18px 26px}
+#about .vl{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+#about .vl li{padding:16px 18px;border:1px solid rgba(184,170,102,.5);background:rgba(255,255,255,.6)}
+#about .vl b{font-family:var(--serif);font-size:20px}
+.qt{font-size:clamp(22px,2.2vw,30px);padding-inline-start:26px;border-inline-start:3px solid var(--au-l)}
+.pph{margin:44px 0 16px;font-size:15px;font-weight:600;color:var(--au-l)}
+.pp{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:18px 28px}
+.pp li{padding-top:14px;border-top:2px solid var(--au)}
+.pp b{display:block;font-family:var(--serif);font-size:21px;color:#fff}
+.pp span{display:block;margin-top:4px;font-size:14px;line-height:1.85;color:#d3dcd9}
+.wcd .mn{margin-top:14px;padding-top:12px;border-top:1px dashed rgba(10,44,45,.28);font-size:14px;line-height:1.9;color:var(--ink)}
+.wcd .mn b{color:var(--au-d)}
+.wl{display:grid;grid-template-columns:1fr 1fr;gap:0 48px}
+#accred .vl li span{display:block;margin-top:2px;font-size:14px;line-height:1.8;color:var(--mu)}
+.ck{margin-top:26px;padding:26px 30px;background:var(--g);color:#fff}
+.ck h3{margin:0 0 14px;font-family:var(--serif);font-size:23px;color:var(--au-l)}
+.ck ol{margin:0;padding:0;list-style:none;counter-reset:ck}
+.ck li{counter-increment:ck;display:flex;gap:14px;padding:9px 0;border-top:1px solid rgba(255,255,255,.14);line-height:1.8;font-size:15px}
+.ck li::before{content:counter(ck);flex:none;width:26px;height:26px;display:grid;place-items:center;border-radius:50%;background:var(--au);color:var(--g);font-weight:700;font-size:13px}
+@media(max-width:760px){.bdg{inset-inline-start:12px;bottom:12px;padding:10px 14px}.bdg b{font-size:30px}.wl{grid-template-columns:1fr}.ck{padding:20px}}
+@media(max-width:600px){#about .vl,.pp{grid-template-columns:1fr}}
+
+/* ===== أهداف اللمس والنص الصغير ===== */
+.br small{font-size:12px}
+@media(max-width:960px),(pointer:coarse){
+  .bm{min-width:48px;min-height:48px}
+  a.lk,a.bo,summary.lk{display:inline-flex;align-items:center;min-height:44px}
+  footer a{display:inline-flex;align-items:center;min-height:40px}
+  .tb button,.fl button,button.bt{min-height:44px}
+}
+footer a{min-width:44px}
+
+/* أزرار الهيرو: التفاف وتباعد على كل العروض */
+.hb{display:flex;flex-wrap:wrap;align-items:center;gap:12px 14px}
+@media(max-width:380px){.hb .bt{flex:1 1 100%}}
+/* زر واتساب العائم على الهاتف: يظهر بعد الهيرو حتى لا يغطي أزرار الشريط */
+@media(max-width:760px){
+  .fb{transition:opacity .25s ease,transform .25s ease,visibility .25s}
+  html:not(.sc-fb) .fb{opacity:0;visibility:hidden;transform:translateY(12px)}
+}
