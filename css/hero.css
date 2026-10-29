@@ -1,0 +1,148 @@
+/* رواد القانون — الهيرو (يُحمَّل آخر ملف CSS).
+   لا يغيّر الـ HTML ولا أي سلوك في main.js. للتراجع: احذف سطر الربط من index.html. */
+
+.hr2.im.i-hero{
+  --hr-night:#061f20;
+  --hr-teal:#0a2c2d;
+  --hr-gold:#e4d39a;
+  --hr-ivory:#fff8ed;
+  --hr-mist:#dbe4e1;
+  --hr-ease:cubic-bezier(.2,.7,.2,1);
+  /* background المختصر يمسح أي background-image قديمة (كانت صورة .i-hero تُلغي التدرّج الداكن) */
+  background:var(--hr-teal);
+  isolation:isolate;
+  padding:144px 0 164px;
+}
+
+/* ===== طبقتا الخلفية: الصورة ثم التدرّج الداكن ===== */
+.hr2.i-hero::before,
+.hr2.i-hero::after{content:"";position:absolute;inset:0;pointer-events:none}
+.hr2.i-hero::before{
+  z-index:-1;
+  background:var(--p) 50% 34%/cover no-repeat;
+  filter:saturate(.85) contrast(1.06) brightness(1);
+}
+.hr2.i-hero::after{
+  z-index:0;
+  background:
+    linear-gradient(180deg,rgba(6,31,32,.8) 0,rgba(6,31,32,0) 26%),
+    linear-gradient(0deg,rgba(6,31,32,.92) 0,rgba(6,31,32,0) 38%),
+    linear-gradient(270deg,rgba(6,31,32,.97) 0,rgba(8,36,37,.9) 34%,rgba(10,44,45,.56) 64%,rgba(10,44,45,.3) 100%);
+}
+
+/* ===== الحاوية ===== */
+.hr2 .hc{gap:clamp(36px,5.6vh,56px)}
+.hr2 :focus-visible{outline-color:var(--hr-gold)}
+
+/* ===== النص ===== */
+.hr2 .sl1{max-width:780px}
+.hr2 .sl1 .lb{
+  display:flex;align-items:center;gap:0;
+  margin:0;font-size:15px;font-weight:600;letter-spacing:0;color:var(--hr-gold);
+}
+.hr2 .sl1 .lb:before{width:34px;margin-inline-end:14px;background:var(--hr-gold);opacity:.8}
+.hr2 .h1{
+  margin:18px 0 22px;
+  font-size:clamp(38px,5vw,72px);
+  line-height:1.3;
+  letter-spacing:0;
+  color:var(--hr-ivory);
+  text-wrap:balance;
+  text-shadow:0 2px 28px rgba(6,31,32,.45);
+}
+.hr2 .h1 span{color:var(--hr-gold)}
+.hr2 .sl1 h2.h1{font-size:clamp(34px,4.4vw,60px);line-height:1.4;max-width:15em}
+.hr2 .sl1 p{
+  max-width:34em;margin-bottom:30px;
+  font-size:18px;line-height:2;color:var(--hr-mist);
+  text-wrap:pretty;
+}
+
+/* ===== الأزرار ===== */
+.hr2 .hb{gap:14px 16px}
+.hr2 .hb .bt{
+  min-height:54px;padding:12px 32px;
+  font-size:15.5px;font-weight:600;
+  transition:background-color .25s,color .25s,border-color .25s,box-shadow .25s,translate .35s var(--mo,var(--hr-ease)),scale .15s;
+}
+.hr2 .hb .bt:hover{opacity:1}
+.hr2 .hb .bt.f,
+.hr2 .hb .bt.f:hover{background:var(--hr-gold);border-color:var(--hr-gold);color:var(--hr-night)}
+.hr2 .hb .bt.f{box-shadow:0 12px 30px -12px rgba(228,211,154,.55)}
+.hr2 .hb .bt.f:hover{background:var(--hr-ivory);border-color:var(--hr-ivory)}
+.hr2 .hb .bt:not(.f){
+  color:var(--hr-ivory);
+  border-color:rgba(255,248,237,.5);
+  background:rgba(255,255,255,.05);
+  -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);
+}
+.hr2 .hb .bt:not(.f):hover{border-color:var(--hr-gold);background:rgba(255,255,255,.12);color:#fff}
+.hr2 .hb .lk{
+  margin-inline-start:8px;padding-bottom:5px;
+  font-size:15px;font-weight:600;color:var(--hr-gold);
+  border-bottom-color:rgba(228,211,154,.55);
+  text-shadow:none;
+  transition:border-color .25s,color .25s;
+}
+.hr2 .hb .lk:hover{opacity:1;color:#fff;border-bottom-color:#fff}
+.hr2 .hb .lk span{display:inline-block;transition:transform .3s var(--hr-ease)}
+.hr2 .hb .lk:hover span{transform:translateX(-5px)}
+
+/* ===== شريط أسفل الهيرو: الأسهم والعدّاد + الرقم ===== */
+.hr2 .hf{
+  justify-content:space-between;gap:24px;
+  padding-top:22px;
+  border-top:1px solid rgba(228,211,154,.3);
+}
+.hr2 .ctl{gap:16px;font-size:14px;letter-spacing:.1em;color:var(--hr-mist);font-variant-numeric:tabular-nums}
+.hr2 .ctl button{
+  width:46px;height:46px;padding:0;border-radius:50%;
+  display:grid;place-items:center;
+  font-size:18px;line-height:1;
+  color:var(--hr-ivory);
+  border:1px solid rgba(228,211,154,.55);
+  background:rgba(6,31,32,.35);
+  transition:background-color .25s,color .25s,border-color .25s;
+}
+.hr2 .ctl button:hover{background:var(--hr-gold);border-color:var(--hr-gold);color:var(--hr-night)}
+.hr2 .hf .os{
+  margin-inline-start:0;
+  display:flex;align-items:baseline;gap:12px;
+  padding:0;border:0;text-align:start;height:auto;
+}
+.hr2 .os b{display:inline;font-family:var(--serif);font-size:44px;font-weight:700;line-height:1;color:var(--hr-gold)}
+.hr2 .os span{font-size:15px;color:var(--hr-mist)}
+
+/* ===== دخول الهيرو: لحظة واحدة منسّقة (عناصر الشريحة تتتابع، ثم الشريط) ===== */
+.hr2 .rv,.hr2 .rv.in{opacity:1;transform:none;translate:none;transition:none;will-change:auto}
+.hr2 .sl1{animation:none}
+@media(prefers-reduced-motion:no-preference){
+  .hr2 .hf{animation:rise .8s .55s var(--hr-ease) both}
+}
+
+/* ===== التابلت والجوال ===== */
+@media(max-width:960px){
+  .hr2.im.i-hero{padding:calc(var(--hh) + 36px) 0 96px}
+  .hr2.i-hero::before{background-position:62% 30%}
+  .hr2.i-hero::after{
+    background:
+      linear-gradient(180deg,rgba(6,31,32,.93) 0,rgba(8,38,39,.8) 50%,rgba(6,31,32,.9) 100%);
+  }
+  .hr2 .hc{gap:36px}
+  .hr2 .h1{margin:16px 0 20px;font-size:clamp(34px,9.6vw,52px)}
+  .hr2 .sl1 h2.h1{font-size:clamp(30px,8.2vw,44px)}
+  .hr2 .sl1 p{font-size:16.5px;line-height:1.95;margin-bottom:28px}
+  .hr2 .hb .bt{flex:1 1 150px;padding-inline:18px;font-size:15px;white-space:nowrap}
+  .hr2 .hb .lk{flex:1 1 100%;margin:4px 0 0;justify-content:center}
+  .hr2 .hf{flex-wrap:nowrap;padding-top:18px}
+  .hr2 .os b{font-size:34px}
+}
+@media(min-width:481px) and (max-width:960px){
+  .hr2 .hb .bt{flex:0 0 auto;padding-inline:32px}
+  .hr2 .hb .lk{flex:0 0 auto;margin:0 8px}
+}
+@media(max-width:480px){
+  .hr2 .hf .os{flex-direction:column;align-items:flex-start;gap:4px}
+  .hr2 .ctl{gap:12px}
+  .hr2 .ctl button{width:44px;height:44px}
+}

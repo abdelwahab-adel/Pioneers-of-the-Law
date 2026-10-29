@@ -1,0 +1,110 @@
+/* رواد القانون — طبقة التصميم الموحّدة (تُحمَّل آخر ملف) */
+:root{--rad:12px;--rad-s:8px;--hh:68px;--ease:cubic-bezier(.2,.7,.2,1);
+--sh1:0 1px 2px rgba(10,44,45,.06),0 8px 22px rgba(10,44,45,.07);
+--sh2:0 2px 4px rgba(10,44,45,.06),0 16px 34px rgba(10,44,45,.13);--bd:#e3d9bf}
+html{scroll-padding-top:calc(var(--hh) + 16px)}
+body{-webkit-text-size-adjust:100%}
+img,svg{max-width:100%}
+
+/* ===== أسطح البطاقات: نصف قطر وظل وحدود موحّدة ===== */
+.pc,.cc,.ar,.sc,.pk,.uc,.pre,.ck,.pt,.pt2,.cover,.frm,.bdg,.fm input,.fm select,.si,#ss,.bt,.tb button,.fl button{border-radius:var(--rad)}
+.pc,.cc,.ar,.sc{overflow:hidden}
+.cc{border-inline-start:1px solid #e6dcc3}
+.cc,.ar,.sc,.pre{box-shadow:var(--sh1)}
+.uc{border-radius:var(--rad);box-shadow:var(--sh2)}
+.frm{outline-offset:10px}
+.bt,.fl button,.tb button{border-radius:999px}
+.fm input,.fm select,.si,#ss{border-radius:var(--rad-s)}
+.tgs i,.ch i,.bd{border-radius:999px}
+.tgs i,.bd,.ar em,.qb em,.sl{font-size:13px}
+
+/* ===== حركة أهدأ: لا حركات لا نهائية، ورفع خفيف عند المرور بالفأرة فقط ===== */
+.jr li.in .dot{animation:none!important}
+.hr2 .h1 span{animation:none;background:none;-webkit-text-fill-color:currentColor;color:var(--au-l);padding-block:0}
+.pk:hover,.tm:hover,.sc:hover,.wcd:hover,.qb:hover,.cc:hover,.ar:hover{translate:0 -3px;box-shadow:var(--sh2)}
+@media(hover:none){.pk:hover,.tm:hover,.sc:hover,.wcd:hover,.qb:hover,.cc:hover,.ar:hover{translate:none;box-shadow:var(--sh1)}}
+
+/* ===== ترويسة سطح المكتب ===== */
+@media(max-width:1180px){.nv{gap:14px}.nv ul{gap:14px}.nv a{font-size:13.5px}}
+.hr2 .hb .lk{margin-inline-start:6px;font-weight:600;text-shadow:0 1px 10px rgba(0,0,0,.55)}
+
+/* ===== الجوال والتابلت: قائمة بملء الشاشة وأهداف لمس مريحة ===== */
+@media(max-width:960px){
+  .hd,header.scr .hd{height:var(--hh)}
+  header:has(.hd.o){background:var(--c);color:var(--ink);border-bottom-color:#eadfc9}
+  html:has(.hd.o){overflow:hidden}
+  .bm{width:48px;height:48px;margin-inline-end:-10px;border-radius:var(--rad-s)}
+  .bm{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px}
+  .bm span{width:22px;height:2px;border-radius:2px;margin:0;transition:transform .25s var(--ease),opacity .2s}
+  .hd.o .bm span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+  .hd.o .bm span:nth-child(2){opacity:0}
+  .hd.o .bm span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+  .nv{position:fixed;inset:var(--hh) 0 0 0;align-items:stretch;gap:0;padding:6px 20px calc(24px + env(safe-area-inset-bottom,0px));overflow-y:auto;overscroll-behavior:contain;border-top:1px solid #eadfc9}
+  .nv ul{gap:0}
+  .nv ul a{display:flex;align-items:center;min-height:54px;padding:0;font-size:17px;border-bottom:1px solid #eadfc9;background:none}
+  .nv ul a:after{display:none}
+  .nv ul a[aria-current]{color:var(--au-d);font-weight:700}
+  .nv .sb{width:100%;min-height:54px;display:flex;justify-content:flex-start;gap:12px;font:inherit;font-size:17px;border-bottom:1px solid #eadfc9}
+  .nv .sb::after{content:"بحث قانوني"}
+  .nv>.bt{margin-top:20px;min-height:52px;background:var(--g);color:#fff;border-color:var(--g)}
+}
+
+/* ===== الجوال ===== */
+@media(max-width:760px){
+  .hr2{min-height:0;padding:calc(var(--hh) + 36px) 0 96px;align-items:flex-start}
+  .hc{gap:32px}
+  .sl1 p{font-size:16px;margin-bottom:22px}
+  .hb .lk{flex:1 1 100%;justify-content:center;margin:2px 0 0;border-bottom:0;text-decoration:underline;text-underline-offset:7px}
+  .hf{width:100%;justify-content:space-between;gap:16px}
+  .os b{font-size:30px}
+  .urg{padding-bottom:40px}
+  .uc{padding:26px 20px;gap:28px}
+  .uc .bt,.bk .bt{width:100%}
+  .bk{flex-wrap:wrap}.bk .bt{flex:1 1 120px}
+
+  /* من نحن: بطاقات أفقية مدمجة بدل الدروع الطويلة */
+  .sh3{gap:22px;margin-top:36px}
+  .sh{display:grid;grid-template-columns:104px minmax(0,1fr);gap:2px 16px;align-items:start;text-align:start}
+  .crn{display:none}
+  .shp{grid-column:1;grid-row:1/4;width:104px;aspect-ratio:1;clip-path:none;border-radius:var(--rad-s)}
+  .sht,.shd,.sh .bo{grid-column:2}
+  .sht{justify-content:flex-start;margin-top:0;font-size:18px}
+  .shd{max-width:none;margin:2px 0 8px;-webkit-line-clamp:3}
+  .sh .bo{justify-self:start;padding:8px 22px}
+  .two[style*="margin-top:104px"]{margin-top:56px!important}
+
+  /* ثقة: شبكة هادئة بدل فواصل متكسّرة */
+  .tr ul{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .tr ul li,.tr ul li:first-child{padding:10px 12px;border:1px solid var(--bd);border-radius:var(--rad-s);background:#fffdf8;font-size:13px;text-align:center}
+
+  /* المرشّحات: صف أفقي قابل للتمرير */
+  .fl{flex-wrap:nowrap;overflow-x:auto;margin-inline:-16px;padding-inline:16px;scrollbar-width:none}
+  .fl::-webkit-scrollbar{display:none}
+  .fl button{flex:none;white-space:nowrap}
+
+  /* بطاقات أقصر لتقليل طول الصفحة */
+  .pc .cover,.cc .cover,.ar .cover{aspect-ratio:16/7}
+  .cb{padding:18px 18px 22px}
+  .gr{margin-top:36px;gap:20px}
+
+  /* نماذج: 16px تمنع تكبير iOS التلقائي */
+  .fm input,.fm select,.si,#ss,.nl input{font-size:16px}
+  .nl{flex-wrap:wrap}.nl input{flex:1 1 180px;width:auto}
+  .bb{justify-content:center;text-align:center}
+}
+
+/* ===== شاشات صغيرة جدًا ===== */
+@media(max-width:380px){.fl{margin-inline:-14px;padding-inline:14px}.tr ul{grid-template-columns:1fr}.sh{grid-template-columns:84px minmax(0,1fr)}.shp{width:84px}}
+
+/* ===== البحث والحوار ===== */
+.sr{padding:max(24px,env(safe-area-inset-top,0px)) 16px calc(24px + env(safe-area-inset-bottom,0px));overscroll-behavior:contain}
+.sr .in{padding-top:24px}
+#sx{min-width:48px;min-height:48px;padding:0}
+.sr a{min-height:48px;display:flex;align-items:center}
+
+/* ===== لمس ===== */
+@media(pointer:coarse){.tb button,.fl button,.bt,.fq summary,.dt>summary{min-height:48px}.soc a{width:44px;height:44px}}
+.fq summary{padding-block:14px}
+
+/* روابط «اقرأ المزيد»: الخط يلتصق بالنص مهما كان ارتفاع منطقة اللمس */
+.lk{border-bottom:0;padding-bottom:0;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:8px}

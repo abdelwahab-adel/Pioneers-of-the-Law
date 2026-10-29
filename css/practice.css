@@ -1,0 +1,65 @@
+/* رواد القانون — قسم التخصصات (#practice) + بطاقة «اقرأ المزيد» المنبثقة (.pm). */
+
+/* ===== بطاقات موحّدة الارتفاع ===== */
+#pcg{gap:28px}
+#practice .pc{display:flex;flex-direction:column;background:linear-gradient(180deg,#0f3a3b,#0b2f30)}
+#practice .cb{flex:1;display:flex;flex-direction:column}
+#practice .cb>p{margin:0}
+#practice .tgs{margin-top:auto;padding-top:16px}
+#practice .tgs i{opacity:1;color:var(--au-l);background:rgba(184,170,102,.14);border-color:rgba(184,170,102,.4)}
+
+/* زر «اقرأ المزيد» */
+#practice .dt{margin-top:18px}
+#practice .dt>summary{display:flex;align-items:center;justify-content:space-between;width:100%;padding:11px 18px;border:1px solid rgba(228,211,154,.5);border-radius:999px;color:var(--au-l);text-decoration:none;font-weight:600;transition:background-color .25s,color .25s,border-color .25s}
+#practice .dt>summary::after{content:"←";transition:translate .3s var(--ease)}
+#practice .dt>summary:hover{opacity:1;background:var(--au-l);border-color:var(--au-l);color:var(--g)}
+#practice .dt>summary:hover::after{translate:-5px 0}
+
+/* المرشّحات */
+#practice .fl button{opacity:1;color:#dbe3e0;border-color:rgba(255,255,255,.28);transition:background-color .25s,color .25s,border-color .25s}
+#practice .fl button:hover{border-color:var(--au-l);color:var(--au-l)}
+#practice .fl button.on{background:var(--au-l);border-color:var(--au-l);color:var(--g);font-weight:700}
+#practice .ix{max-width:none;border-radius:var(--rad)}
+
+/* ===== البطاقة المنبثقة (مدمجة ومتوسّطة) ===== */
+html.pm-lock{overflow:hidden}
+dialog.pm{position:fixed;inset:0;margin:auto;width:min(620px,calc(100% - 32px));max-width:none;height:fit-content;max-height:min(86vh,640px);padding:0;overflow:auto;overscroll-behavior:contain;border:0;border-radius:16px;background:#fffdf8;color:var(--ink);box-shadow:0 30px 80px rgba(0,0,0,.45)}
+dialog.pm::backdrop{background:rgba(6,30,31,.64);-webkit-backdrop-filter:blur(5px);backdrop-filter:blur(5px)}
+.pm-top{position:relative;overflow:hidden}
+.pm-top::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(10,44,45,.15) 0%,rgba(10,44,45,.9))}
+.pm-cover{aspect-ratio:auto;height:140px;border-radius:0}
+.pm-cover::after{display:none}
+.pm-ttl{position:absolute;z-index:2;inset-inline:24px;bottom:16px;color:#fff}
+.pm-ttl h3{margin:0;font-family:var(--serif);font-size:clamp(21px,3vw,26px);line-height:1.4}
+.pm-ttl .tgs{margin-top:8px;gap:6px}
+.pm-ttl .tgs i{padding:0 11px;font-size:12px;color:var(--au-l);border-color:rgba(228,211,154,.55);opacity:1}
+.pm-x{position:absolute;z-index:3;top:12px;inset-inline-end:12px;width:34px;height:34px;display:grid;place-items:center;padding:0;border:1px solid rgba(255,255,255,.5);border-radius:50%;background:rgba(10,44,45,.55);color:#fff;font-size:14px;line-height:1;cursor:pointer;transition:background-color .2s,color .2s}
+.pm-x:hover,.pm-x:focus-visible{background:var(--au-l);color:var(--g)}
+.pm-body{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:18px 24px 4px}
+.pm-d{grid-column:1/-1;margin:0;font-size:13.5px;line-height:1.85;color:var(--mu)}
+.pm-sec:first-of-type{grid-column:1/-1}
+.pm-sec:not(:first-of-type){padding:12px 14px;border:1px solid var(--bd);border-radius:10px;background:#fff}
+.pm .sl{margin:0 0 8px;font-size:12.5px;font-weight:700;color:var(--au-d)}
+.pm .xp{margin:0;font-size:13.5px;line-height:1.8;color:#333}
+.pm ul{display:grid;gap:8px;margin:0;padding:0;list-style:none}
+.pm li{display:flex;gap:10px;align-items:flex-start;font-size:14px;line-height:1.7}
+.pm li::before{content:"✓";flex:none;width:20px;height:20px;margin-top:2px;display:grid;place-items:center;border-radius:50%;background:rgba(184,170,102,.25);color:var(--au-d);font-size:11px;font-weight:700}
+.pm-ft{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding:14px 24px 20px}
+.pm-cta{flex:none;min-height:42px;padding:8px 22px;font-size:14px}
+.pm-fn{flex:1 1 220px;margin:0;font-size:12px;line-height:1.7;color:var(--mu)}
+
+@media(prefers-reduced-motion:no-preference){
+ @keyframes pm-in{from{opacity:0;transform:translateY(22px) scale(.97)}}
+ @keyframes pm-sheet{from{transform:translateY(100%)}}
+ @keyframes pm-fade{from{opacity:0}}
+ dialog.pm[open]{animation:pm-in .4s var(--mo)}
+ dialog.pm[open]::backdrop{animation:pm-fade .3s ease}
+}
+@media(max-width:600px){
+ dialog.pm{width:100%;margin:auto 0 0;max-height:90vh;border-radius:18px 18px 0 0}
+ .pm-body{grid-template-columns:1fr;padding:16px 18px 2px}
+ .pm-ttl{inset-inline:18px}
+ .pm-ft{padding:12px 18px 18px}
+ .pm-cta{width:100%}
+}
+@media(max-width:600px) and (prefers-reduced-motion:no-preference){dialog.pm[open]{animation:pm-sheet .4s var(--mo)}}

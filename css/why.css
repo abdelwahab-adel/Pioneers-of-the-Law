@@ -1,0 +1,45 @@
+/* رواد القانون — إعادة تصميم قسم «لماذا رواد القانون» (#why). لا تغيير في HTML. */
+
+/* العنوان: توسيط وزخرفة ذهبية */
+#why .hd2{display:block;max-width:760px;margin-inline:auto;text-align:center}
+#why .hd2>.lb{margin-bottom:10px}
+#why .h2::after{content:"";display:block;width:56px;height:3px;margin:20px auto 0;background:var(--au);border-radius:2px}
+
+/* البطاقات الأربع: سطح أبيض بإطار وصورة بتدرّج ورقم تسلسلي */
+#why .wc{counter-reset:wcd;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;margin-top:56px}
+#why .wcd{counter-increment:wcd;position:relative;display:flex;flex-direction:column;text-align:start;overflow:hidden;background:#fff;border:1px solid var(--bd);border-top:3px solid var(--au);border-radius:var(--rad);box-shadow:var(--sh1)}
+#why .wcd::before{content:counter(wcd,decimal-leading-zero);position:absolute;z-index:2;top:14px;inset-inline-start:16px;font-family:var(--serif);font-size:30px;font-weight:700;line-height:1;color:#fff;text-shadow:0 2px 12px rgba(0,0,0,.5)}
+#why .wph{aspect-ratio:4/3;box-shadow:inset 0 -70px 60px -40px rgba(10,44,45,.55)}
+#why .wb{align-self:flex-start;width:56px;height:56px;margin:-28px 22px 14px;border:3px solid #fff;border-radius:14px;background:var(--g);color:var(--au-l);box-shadow:0 8px 20px rgba(10,44,45,.25)}
+#why .wcd h3{margin:0 22px 8px;font-family:var(--serif);font-size:22px;line-height:1.5}
+#why .wcd p{margin-inline:22px;font-size:14px;line-height:1.9}
+#why .wcd .mn{margin:auto 22px 22px;padding:12px 14px;border:0;border-inline-start:3px solid var(--au-d);border-radius:var(--rad-s);background:rgba(184,170,102,.14);font-size:13.5px}
+#why .wcd p:not(.mn){margin-bottom:16px}
+#why .wcd .mn b{display:block;margin-bottom:2px;font-size:12.5px;letter-spacing:.2px}
+@media(hover:hover){#why .wcd:hover{box-shadow:var(--sh2);border-top-color:var(--au-d)}}
+
+/* القائمة الثنائية: بطاقات أفقية بصور مربعة */
+#why .wl{gap:16px 20px;margin-top:48px}
+#why .vl li{align-items:center;gap:18px;padding:16px 18px;background:#fff;border:1px solid var(--bd);border-radius:var(--rad);transition:border-color .3s,box-shadow .3s,translate .35s var(--ease)}
+#why .vl .ib.im{width:72px;height:72px;border-radius:14px;box-shadow:0 6px 16px rgba(10,44,45,.18)}
+#why .vl b{font-family:var(--serif);font-size:20px;line-height:1.5}
+#why .vl span{display:block;margin-top:2px;line-height:1.8}
+@media(hover:hover){#why .vl li:hover{border-color:var(--au);box-shadow:var(--sh1);translate:0 -3px}}
+
+/* الملاحظة الختامية: شريط داكن بارز */
+#why .ix{position:relative;overflow:hidden;max-width:none;margin-top:36px;padding:28px 34px;color:#fff;border:0;border-inline-start:4px solid var(--au);border-radius:var(--rad);background:linear-gradient(135deg,var(--g),#16403f);box-shadow:var(--sh2)}
+#why .ix::after{content:"§";position:absolute;inset-inline-end:26px;top:50%;translate:0 -50%;font-family:var(--serif);font-size:130px;line-height:1;color:var(--au);opacity:.12;pointer-events:none}
+#why .ix b{display:block;margin-bottom:6px;font-family:var(--serif);font-size:24px;color:var(--au-l)}
+#why .ix p{max-width:720px;margin:0;color:rgba(255,255,255,.9);line-height:1.95}
+
+@media(max-width:1000px){#why .wc{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}}
+@media(max-width:600px){
+ #why .wc{grid-template-columns:1fr;margin-top:36px}
+ #why .wph{aspect-ratio:16/9}
+ #why .wcd h3{font-size:20px}
+ #why .wcd p{font-size:14px}
+ #why .vl li{padding:14px;gap:14px}
+ #why .vl .ib.im{width:60px;height:60px}
+ #why .ix{padding:22px 20px}
+ #why .ix::after{font-size:96px}
+}
