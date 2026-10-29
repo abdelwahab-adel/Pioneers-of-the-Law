@@ -1,0 +1,28 @@
+/* رواد القانون — قسم الخريطة (آخر قسم قبل الفوتر) — تنسيق فقط، كل القواعد داخل #location */
+
+#location{
+  --ct-bd:#e3d9bf;
+  background:#f6edd6;border-top:1px solid var(--ct-bd)
+}
+
+/* الخريطة بعرض الشاشة كاملة */
+#location .mp-f{
+  position:relative;height:clamp(380px,42vw,560px);background:#e9e4d6
+}
+#location iframe{
+  position:absolute;inset:0;width:100%;height:100%;border:0;
+  filter:saturate(.88) contrast(1.03)
+}
+
+/* تمرير الصفحة لا يعلق داخل الخريطة: تُقفل حتى النقر عليها (يفعّل ذلك location.js) */
+#location .mp-f.lock:not(.act) iframe{pointer-events:none}
+#location .mp-f.lock:not(.act)::after{
+  content:"انقر لتحريك الخريطة";position:absolute;top:16px;inset-inline-end:16px;
+  padding:7px 14px;border-radius:999px;background:rgba(255,255,255,.94);
+  border:1px solid var(--ct-bd);box-shadow:0 2px 8px rgba(10,44,45,.12);
+  color:var(--g);font-size:12.5px;font-weight:600;pointer-events:none
+}
+
+@media(max-width:960px){
+  #location .mp-f{height:clamp(300px,70vw,420px)}
+}

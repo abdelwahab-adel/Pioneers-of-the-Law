@@ -1,37 +1,42 @@
-/* صور عالية الدقة لكل موضع (Unsplash). الصورة المحلية في img/ لا تُحمَّل إلا إذا فشل الرابط الخارجي (يضيف main.js الصنف hq-off على <html>). */
-.i-hero{--p:url(https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=2000&q=80);background-image:var(--p)}
+/* صور عالية الدقة لكل موضع (Unsplash) — كلها صور قانونية: محاكم، تمثال العدالة، مطارق، كتب قانونية، توقيع عقود، مراجعة مستندات.
+   الصورة المحلية في img/ لا تُحمَّل إلا إذا فشل الرابط الخارجي (يضيف main.js الصنف hq-off على <html>). */
+.i-hero{--p:url(https://images.unsplash.com/photo-1780396070926-5abdd2a7928a?auto=format&fit=crop&w=2000&q=80);background-image:var(--p)}
 html.hq-off .i-hero{--p:url(../img/hero.jpg)}
-.i-ban{--p:url(https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=2000&q=80);background-image:var(--p)}
+.i-ban{--p:url(https://images.unsplash.com/photo-1758541213979-fe8c9996e197?auto=format&fit=crop&w=2000&q=80);background-image:var(--p)}
 html.hq-off .i-ban{--p:url(../img/banner.jpg)}
-.i-ban2{--p:url(https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1800&q=80);background-image:var(--p)}
+.i-ban2{--p:url(https://images.unsplash.com/photo-1758518729706-b1810dd39cc6?auto=format&fit=crop&w=1800&q=80);background-image:var(--p)}
 html.hq-off .i-ban2{--p:url(../img/banner2.jpg)}
-.i-court{--p:url(https://images.unsplash.com/photo-1593115057322-e94b77572f20?auto=format&fit=crop&w=1400&q=80);background-image:var(--p)}
+.i-court{--p:url(https://images.unsplash.com/photo-1436450412740-6b988f486c6b?auto=format&fit=crop&w=1400&q=80);background-image:var(--p)}
 html.hq-off .i-court{--p:url(../img/court.jpg)}
-.i-strip{--p:url(https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1800&q=80);background-image:var(--p)}
+.i-strip{--p:url(https://images.unsplash.com/photo-1758518727077-ffb66ffccced?auto=format&fit=crop&w=1800&q=80);background-image:var(--p)}
 html.hq-off .i-strip{--p:url(../img/strip.jpg)}
-.i-sc{--p:url(https://images.unsplash.com/photo-1589391886645-d51941baf7fb?auto=format&fit=crop&w=1400&q=80);background-image:var(--p)}
+.i-sc{--p:url(https://images.unsplash.com/photo-1562564055-71e051d33c19?auto=format&fit=crop&w=1400&q=80);background-image:var(--p)}
 html.hq-off .i-sc{--p:url(../img/sc.jpg)}
-.i-sr{--p:url(https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1400&q=80);background-image:var(--p)}
+.i-sr{--p:url(https://images.unsplash.com/photo-1676181739859-08330dea8999?auto=format&fit=crop&w=1400&q=80);background-image:var(--p)}
 html.hq-off .i-sr{--p:url(../img/sr.jpg)}
-.k2{--p:url(https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=1400&q=80);background-image:var(--p)}
+.i-cf{--p:url(https://images.unsplash.com/photo-1780733064275-d1ade9b83a3d?auto=format&fit=crop&w=1400&q=80);background-image:var(--p)}
+html.hq-off .i-cf{--p:url(../img/hero.jpg)}
+.i-sd{--p:url(https://images.unsplash.com/photo-1711003596872-aa68f08a4b8e?auto=format&fit=crop&w=1400&q=80);background-image:var(--p)}
+html.hq-off .i-sd{--p:url(../img/court.jpg)}
+.k2{--p:url(https://images.unsplash.com/photo-1479142506502-19b3a3b7ff33?auto=format&fit=crop&w=1400&q=80);background-image:var(--p)}
 html.hq-off .k2{--p:url(../img/c3_1.jpg)}
-.k3{--p:url(https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=1400&q=80);background-image:var(--p)}
+.k3{--p:url(https://images.unsplash.com/photo-1755551636128-2385f552d7ec?auto=format&fit=crop&w=1400&q=80);background-image:var(--p)}
 html.hq-off .k3{--p:url(../img/c2_2.jpg)}
-.k4{--p:url(https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1400&q=80);background-image:var(--p)}
+.k4{--p:url(https://images.unsplash.com/photo-1587740896339-96a76170508d?auto=format&fit=crop&w=1400&q=80);background-image:var(--p)}
 html.hq-off .k4{--p:url(../img/c3_2.jpg)}
-.o-gv{--p:url(https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1400&q=80);background-image:var(--p)}
+.o-gv{--p:url(https://images.unsplash.com/photo-1767972159674-460283907c21?auto=format&fit=crop&w=1400&q=80);background-image:var(--p)}
 html.hq-off .o-gv{--p:url(../img/gv.jpg)}
-.o-sl{--p:url(https://images.unsplash.com/photo-1505664194779-8beaceb93744?auto=format&fit=crop&w=1400&q=80);background-image:var(--p)}
+.o-sl{--p:url(https://images.unsplash.com/photo-1589994965851-a8f479c573a9?auto=format&fit=crop&w=1400&q=80);background-image:var(--p)}
 html.hq-off .o-sl{--p:url(../img/sl.jpg)}
-.o-hs{--p:url(https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1400&q=80);background-image:var(--p)}
+.o-hs{--p:url(https://images.unsplash.com/photo-1758518731462-d091b0b4ed0d?auto=format&fit=crop&w=1400&q=80);background-image:var(--p)}
 html.hq-off .o-hs{--p:url(../img/hs.jpg)}
-.o-rg{--p:url(https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1400&q=80);background-image:var(--p)}
+.o-rg{--p:url(https://images.unsplash.com/photo-1589578527966-fdac0f44566c?auto=format&fit=crop&w=1400&q=80);background-image:var(--p)}
 html.hq-off .o-rg{--p:url(../img/rg.jpg)}
-.o-bl{--p:url(https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1400&q=80);background-image:var(--p)}
+.o-bl{--p:url(https://images.unsplash.com/photo-1618771623063-6c3faa854a61?auto=format&fit=crop&w=1400&q=80);background-image:var(--p)}
 html.hq-off .o-bl{--p:url(../img/bl.jpg)}
-.o-co{--p:url(https://images.unsplash.com/photo-1554224154-26032ffc0d07?auto=format&fit=crop&w=1400&q=80);background-image:var(--p)}
+.o-co{--p:url(https://images.unsplash.com/photo-1617203443952-6d2619f7ff4e?auto=format&fit=crop&w=1400&q=80);background-image:var(--p)}
 html.hq-off .o-co{--p:url(../img/cn.jpg)}
 .o-bc{--p:url(https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1400&q=80);background-image:var(--p)}
 html.hq-off .o-bc{--p:url(../img/bc.jpg)}
-.o-sh{--p:url(https://images.unsplash.com/photo-1521791055366-0d553872125f?auto=format&fit=crop&w=1400&q=80);background-image:var(--p)}
+.o-sh{--p:url(https://images.unsplash.com/photo-1589216532372-1c2a367900d9?auto=format&fit=crop&w=1400&q=80);background-image:var(--p)}
 html.hq-off .o-sh{--p:url(../img/sh.jpg)}

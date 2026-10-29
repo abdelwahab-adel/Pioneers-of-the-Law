@@ -192,7 +192,7 @@ h1 span{color:var(--au)}
 .ci li{grid-template-columns:1fr}
 }
 html{scroll-padding-top:92px}
-header{position:absolute;top:40px;inset-inline:0;z-index:20;background:transparent;color:#fff;border-bottom:1px solid rgba(255,255,255,.2);transition:background .25s,box-shadow .25s}
+header{position:absolute;top:0;inset-inline:0;z-index:20;background:transparent;color:#fff;border-bottom:1px solid rgba(255,255,255,.2);transition:background .25s,box-shadow .25s}
 header.scr{position:fixed;top:0;background:var(--c);color:var(--ink);border-bottom-color:#eadfc9}
 .br b,.br small{color:inherit}
 .br small{opacity:.78}
@@ -353,12 +353,6 @@ button[aria-busy=true]{opacity:.55;pointer-events:none}
 .hx{padding-bottom:140px}
 @media(max-width:960px){.hx{padding-bottom:96px}
 }
-.tb0{background:#061f20;color:#cdd6d3;font-size:12.5px;height:40px;display:flex;align-items:center}
-.tb0 .w{display:flex;gap:28px;align-items:center}
-.tb0 b{color:var(--au);font-weight:600;margin-inline-end:4px}
-.tb0 .soc{margin:0;margin-inline-start:auto;gap:6px}
-.tb0 .soc a{width:26px;height:26px;border:0}
-.tb0 .soc svg{width:15px;height:15px}
 .hr2{position:relative;min-height:clamp(640px,94vh,840px);display:flex;align-items:center;color:#fff;overflow:hidden;padding:150px 0 180px;background-image:linear-gradient(270deg,rgba(6,31,32,.93) 0%,rgba(10,44,45,.74) 46%,rgba(10,44,45,.38) 100%),var(--p);background-size:cover;background-position:50% 30%}
 .hc{position:relative;z-index:2;display:flex;flex-direction:column;gap:64px}
 .sl1{max-width:800px;animation:up .8s .1s both}
@@ -374,8 +368,7 @@ button[aria-busy=true]{opacity:.55;pointer-events:none}
 .hd3{display:grid;grid-template-columns:1fr 1.1fr;gap:64px;align-items:end}
 .hd3 .h2{font-size:clamp(30px,3.6vw,52px);font-weight:700;line-height:1.3}
 .hd3 .ld{max-width:none;margin:0;font-size:17px;border-inline-start:1px solid rgba(184,170,102,.55);padding-inline-start:36px}
-@media(max-width:960px){.tb0{display:none}
-header{top:0}
+@media(max-width:960px){
 .hr2{padding:130px 0 120px;min-height:0}
 .hd3{grid-template-columns:1fr;gap:24px}
 .hd3 .ld{border:0;padding:0}

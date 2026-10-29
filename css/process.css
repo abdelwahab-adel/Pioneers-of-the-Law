@@ -1,16 +1,17 @@
-/* رواد القانون — «منهجية العمل» و«رحلة العميل» (يُحمَّل بعد hero.css).
+/* رواد القانون — «منهجية العمل» (قسم واحد يضم رحلة العميل سابقًا، على خلفية داكنة) (يُحمَّل بعد hero.css).
    لا يغيّر أي نص أو سلوك JS. للتراجع: احذف سطر الربط من index.html. */
 
 /* ===================== منهجية العمل (#method) ===================== */
-#method{--m-gold:var(--au-d);--m-rule:rgba(10,44,45,.2)}
+#method{--m-gold:var(--au-l);--m-rule:rgba(255,255,255,.22)}
 
-/* ملاحظة سفلية: شريط بعرض الشبكة بدل صندوق عائم (مشترك مع #journey) */
-#method .ix,#journey .ix{
+/* ملاحظتان سفليتان: شريطان بعرض الشبكة بدل صندوق عائم */
+#method .ix{
   max-width:none;margin-top:52px;padding:22px 30px;
   display:grid;grid-template-columns:minmax(190px,260px) minmax(0,1fr);gap:6px 40px;align-items:center;
 }
-#method .ix b,#journey .ix b{margin:0;font-size:21px;line-height:1.5}
-#method .ix p,#journey .ix p{font-size:15.5px}
+#method .ix b{margin:0;font-size:21px;line-height:1.5}
+#method .ix p{font-size:15.5px;color:#dbe4e1}
+#method .ix+.ix{margin-top:16px}
 
 /* ---- سطح المكتب: خمسة أعمدة مفصولة بخطوط رفيعة ---- */
 #method .mt{grid-template-columns:repeat(5,minmax(0,1fr));gap:0;margin-top:56px}
@@ -38,15 +39,15 @@
 }
 #method .mt h3{
   margin:0 0 10px;
-  font-family:var(--serif);font-size:24px;font-weight:700;line-height:1.4;color:var(--g);
+  font-family:var(--serif);font-size:24px;font-weight:700;line-height:1.4;color:#fff;
 }
-#method .mt p{font-size:15px;line-height:1.95;color:var(--mu);margin:0}
+#method .mt p{font-size:15px;line-height:1.95;color:#cdd6d3;margin:0}
 #method .mt p:not(.xp){margin-bottom:22px}
 /* ما ستحصل عليه: كتلة منفصلة تُحاذى بأسفل العمود */
 #method .mt .xp{
   margin:0;padding-top:16px;
-  border-top:1px dashed rgba(10,44,45,.28);
-  font-size:14.5px;line-height:1.9;color:var(--g);
+  border-top:1px dashed rgba(255,255,255,.3);
+  font-size:14.5px;line-height:1.9;color:#e8eeec;
 }
 #method .mt .xp b{display:block;margin-bottom:2px;font-size:13.5px;font-weight:600;color:var(--m-gold)}
 
@@ -60,13 +61,13 @@
   #method .mt>div::before{display:none}
   #method .mt>div:not(:last-child)::after{
     content:"";position:absolute;inset-inline-start:31px;top:70px;bottom:6px;width:1px;
-    background:rgba(138,109,31,.5);
+    background:rgba(228,211,154,.5);
   }
   #method .mt .nu{
     grid-row:1 / span 4;align-self:start;
     width:64px;height:64px;margin:0;
     display:grid;place-items:center;
-    border:1px solid var(--m-gold);border-radius:50%;background:var(--c);
+    border:1px solid var(--m-gold);border-radius:50%;background:var(--g);
     font-size:24px;
   }
   #method .mt h3{margin:4px 0 8px;font-size:23px}
@@ -79,64 +80,7 @@
   #method .mt>div:not(:last-child)::after{inset-inline-start:25px;top:58px}
 }
 
-/* ===================== رحلة العميل (#journey) ===================== */
-#journey{
-  --j-gold:var(--au-l);
-  background:var(--g);color:#fff;
-  padding:88px 0;
-}
-#journey .lb{color:var(--j-gold)}
-#journey .lb:before{background:var(--j-gold)}
-#journey .h2{color:#fff}
-
-/* ---- سطح المكتب: مسار أفقي تربط عقدَه خطوط ذهبية ---- */
-#journey .jr{grid-template-columns:repeat(5,minmax(0,1fr));gap:0;margin-top:56px}
-#journey .jr li{position:relative;border-top:0;padding-inline-end:22px}
-#journey .jr .dot{
-  position:relative;z-index:1;
-  width:48px;height:48px;margin:0 0 20px;
-  background:var(--g);color:var(--j-gold);
-  border:1px solid var(--j-gold);
-  font-family:var(--serif);font-size:21px;font-weight:700;
-}
-/* العقدة الأخيرة (إنهاء القضية) ممتلئة لأنها نقطة الوصول */
-#journey .jr li:last-child .dot{background:var(--j-gold);color:var(--g)}
-#journey .jr b{display:block;max-width:11em;font-size:17px;font-weight:600;line-height:1.6;color:#fff}
-#journey .jr li:not(:last-child)::after{
-  content:"";position:absolute;top:24px;
-  inset-inline-start:48px;inset-inline-end:0;
-  width:auto;height:1px;bottom:auto;
-  background:rgba(228,211,154,.5);
-}
-
-/* الخط يرسم نفسه من العقدة إلى التالية (أفقيًا هنا، وعموديًا على الجوال) */
-@media(prefers-reduced-motion:no-preference){
-  #journey .jr li:not(:last-child)::after{transform:scaleX(0);transform-origin:100% 50%}
-  #journey .jr li.in:not(:last-child)::after{transform:none}
-}
-
-/* ---- تابلت وجوال: مسار عمودي ---- */
-@media(max-width:860px){
-  #journey{padding:64px 0}
-  #journey .jr{grid-template-columns:1fr;gap:0;margin-top:36px}
-  #journey .jr li{display:flex;align-items:center;gap:18px;padding:0 0 30px}
-  #journey .jr .dot{margin:0;flex:none}
-  #journey .jr b{max-width:none;font-size:17px}
-  #journey .jr li:not(:last-child)::after{
-    top:54px;bottom:6px;height:auto;width:1px;
-    inset-inline-start:23px;inset-inline-end:auto;
-    background:rgba(228,211,154,.5);
-  }
-}
-@media(max-width:860px) and (prefers-reduced-motion:no-preference){
-  #journey .jr li:not(:last-child)::after{transform:scaleY(0);transform-origin:50% 0}
-  #journey .jr li.in:not(:last-child)::after{transform:none}
-}
-
-/* ---- الملاحظة على الخلفية الداكنة ---- */
-#journey .ix{background:rgba(255,255,255,.07);border-inline-start-color:var(--j-gold);color:#fff}
-#journey .ix p{color:#dbe4e1}
-
 @media(max-width:760px){
-  #method .ix,#journey .ix{grid-template-columns:1fr;gap:4px;padding:18px 22px;margin-top:36px}
+  #method .ix{grid-template-columns:1fr;gap:4px;padding:18px 22px;margin-top:36px}
+  #method .ix+.ix{margin-top:14px}
 }

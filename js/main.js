@@ -64,24 +64,43 @@
     Object.keys(navLinks).forEach(function (h) { var s = $(h); if (s) spy.observe(s); });
   }
 
-  /* ---------- Top bar: hide items that have no real data yet ---------- */
-  $$('.tb0 .ti[data-need]').forEach(function (item) {
-    item.hidden = !{ phone: CONFIG.phone, email: CONFIG.email }[item.dataset.need];
-  });
-  var topSocial = $('.tb0 .soc');
-  if (topSocial) topSocial.hidden = !Object.keys(CONFIG.social).some(function (k) { return CONFIG.social[k]; });
-
-  /* ---------- Hero slides (manual: arrows + counter) ---------- */
-  var slides = $$('.sl1');
-  var slideCounter = $('#hc');
-  var slidePos = 0;
-  function showSlide(i) {
-    slidePos = (i + slides.length) % slides.length;
-    slides.forEach(function (s, k) { s.hidden = k !== slidePos; });
-    slideCounter.textContent = '0' + (slidePos + 1) + ' / 0' + slides.length;
+  /* ---------- Hero headline rotation: 3 texts, every 4s; the old text fully leaves before the next enters ---------- */
+  var hxItems = $$('.hx-i');
+  if (hxItems.length > 1 && !reduceMotion) {
+    var hxPos = 0, hxTimer = 0, hxPaused = false, hxHold = { hover: false, key: false };
+    var hxSchedule = function (ms) {
+      clearTimeout(hxTimer);
+      if (!hxPaused && !document.hidden) hxTimer = setTimeout(hxSwap, ms);
+    };
+    var hxSwap = function () {
+      var cur = hxItems[hxPos];
+      cur.classList.remove('on'); cur.classList.add('out');
+      setTimeout(function () {            /* completes even if paused meanwhile, so nothing is left half-hidden */
+        cur.classList.remove('out');
+        hxPos = (hxPos + 1) % hxItems.length;
+        hxItems[hxPos].classList.add('on');
+        hxSchedule(3350);
+      }, 650);
+    };
+    var hxSync = function () {
+      hxPaused = hxHold.hover || hxHold.key;
+      if (hxPaused) clearTimeout(hxTimer); else hxSchedule(4000);
+    };
+    var hxBtns = $('.hr2 .hb'), hxHero = $('.hr2');
+    if (hxBtns && window.matchMedia('(hover:hover)').matches) {   /* pause only while the pointer is on the buttons */
+      hxBtns.addEventListener('mouseenter', function () { hxHold.hover = true; hxSync(); });
+      hxBtns.addEventListener('mouseleave', function () { hxHold.hover = false; hxSync(); });
+    }
+    hxHero.addEventListener('focusin', function (e) {              /* keyboard focus only, not a mouse click */
+      var kb = true; try { kb = e.target.matches(':focus-visible'); } catch (x) {}
+      hxHold.key = kb; hxSync();
+    });
+    hxHero.addEventListener('focusout', function () { hxHold.key = false; hxSync(); });
+    document.addEventListener('visibilitychange', function () {
+      if (document.hidden) clearTimeout(hxTimer); else hxSchedule(4000);
+    });
+    hxSchedule(4000);
   }
-  $('#hp').addEventListener('click', function () { showSlide(slidePos - 1); });
-  $('#hn').addEventListener('click', function () { showSlide(slidePos + 1); });
 
   /* ---------- Scroll reveal (skipped when the user prefers reduced motion) ---------- */
   if (!reduceMotion && 'IntersectionObserver' in window) {
@@ -288,19 +307,6 @@
   [].forEach.call(document.querySelectorAll('.st b bdi'), function (b) { co.observe(b); });
 })();
 
-/* شريط تقدّم القراءة */
-(function () {
-  'use strict';
-  if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  var bar = document.createElement('div'); bar.id = 'pg'; bar.setAttribute('aria-hidden', 'true'); document.body.appendChild(bar);
-  var raf = 0;
-  function upd() {
-    raf = 0; var d = document.documentElement, m = d.scrollHeight - innerHeight;
-    bar.style.transform = 'scaleX(' + (m > 0 ? Math.min(1, scrollY / m) : 0) + ')';
-  }
-  addEventListener('scroll', function () { if (!raf) raf = requestAnimationFrame(upd); }, { passive: true }); upd();
-})();
-
 /* حرف الاسم الأول على لوحات الفريق */
 (function () {
   'use strict';
@@ -346,7 +352,7 @@
   'use strict';
   var probe = new Image();
   probe.onerror = function () { document.documentElement.classList.add('hq-off'); };
-  probe.src = "https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=2000&q=80";
+  probe.src = "https://images.unsplash.com/photo-1780396070926-5abdd2a7928a?auto=format&fit=crop&w=2000&q=80";
 })();
 
 /* إظهار زر واتساب العائم بعد تجاوز الهيرو (يُطبَّق على الهاتف فقط عبر CSS) */
