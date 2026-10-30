@@ -27,7 +27,7 @@
 #accred .ac-side{display:flex;flex-direction:column;gap:20px;min-width:0}
 
 /* ملاحظة «اطلب بيانات الترخيص» */
-#accred .ix{margin:0;max-width:none;padding:20px 24px;background:rgba(184,170,102,.16);border:0;border-inline-start:4px solid var(--au-d);border-radius:var(--rad)}
+#accred .ix{margin:0;max-width:none;padding:20px 24px;background:linear-gradient(135deg,#f5f9f7,#e8f1ed);border:0;border-inline-start:4px solid var(--au-d);border-radius:var(--rad)}
 #accred .ix b{margin-bottom:4px;font-family:var(--serif);font-size:21px;color:var(--g)}
 #accred .ix p{font-size:15px;line-height:1.9;color:#33332e}
 

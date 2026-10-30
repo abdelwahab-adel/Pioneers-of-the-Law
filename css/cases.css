@@ -13,12 +13,17 @@
 
 /* ===== شبكة البطاقات ===== */
 #cases #csg{gap:28px;margin-top:28px;align-items:start}
-#cases .cc{position:relative;display:flex;flex-direction:column;background:#fffdf8;border:1px solid var(--cs-bd);border-radius:var(--rad);box-shadow:var(--sh1)}
+#cases .cc{position:relative;display:flex;flex-direction:column;background:#fff;border:1px solid var(--cs-bd);border-radius:var(--rad);box-shadow:none}
+/* مبسّطة: بلا رفع ولا تكبير صورة عند المرور، وتغيّر لون الحدّ فقط */
+#cases .cc:hover{translate:none;transform:none;box-shadow:none;border-color:var(--au)}
 
 /* وسم التصنيف فوق الصورة (يُقرأ من data-cat) */
-#cases .cc::before{content:attr(data-cat);position:absolute;z-index:3;top:14px;inset-inline-start:14px;padding:3px 14px;border-radius:999px;background:rgba(255,248,237,.95);color:var(--g);font-size:13px;font-weight:600;line-height:1.8;box-shadow:0 2px 10px rgba(10,44,45,.18)}
+#cases .cc::before{content:attr(data-cat);position:absolute;z-index:3;top:14px;inset-inline-start:14px;padding:3px 14px;border-radius:999px;background:rgba(255,248,237,.95);color:var(--g);font-size:13px;font-weight:600;line-height:1.8}
 #cases .cover{aspect-ratio:16/6.5;border-radius:0}
-#cases .cover::after{inset:0;border:0;background:linear-gradient(to top,rgba(10,44,45,.5),transparent 60%)}
+/* الصورة بلا تعتيم ولا إطار داخلي، ولا تكبير عند المرور */
+#cases .cover::before{background-image:var(--r,none),var(--p)}
+#cases .cover::after{display:none}
+#cases .cc:hover .cover::before{transform:none}
 
 /* ===== جسم البطاقة: الجهة، العنوان، النتيجة، ثم الوصف ===== */
 #cases .cb{display:flex;flex-direction:column;padding:22px 26px 24px}
@@ -28,17 +33,17 @@
 #cases .dt{order:5;margin-top:20px}
 
 /* لوحة النتيجة: الرقم أو الحكم الأهم بخط كبير، والتفاصيل تحته */
-#cases .ch{order:3;display:flex;flex-wrap:wrap;align-items:center;gap:6px 20px;margin:0 0 16px;padding:16px 20px;background:var(--g);border-radius:var(--rad-s)}
-#cases .ch i{display:inline-flex;align-items:center;gap:8px;padding:0;background:none;border-radius:0;font-size:13.5px;font-weight:500;line-height:1.6;color:#cfdad6}
-#cases .ch i::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--au)}
-#cases .ch i.res{order:-1;flex:0 0 100%;gap:0;font-family:var(--serif);font-size:clamp(26px,2.5vw,32px);font-weight:700;line-height:1.4;color:var(--au-l)}
-#cases .ch i.res::before{display:none}
+#cases .ch{order:3;display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 18px;margin:0 0 16px;padding:14px 18px;background:var(--g);border-radius:var(--rad-s)}
+#cases .ch i{padding:0;background:none;border-radius:0;font-size:13.5px;font-weight:500;line-height:1.6;color:#cfdad6}
+#cases .ch i.res{order:-1;flex:0 0 100%;font-family:var(--serif);font-size:clamp(21px,1.8vw,24px);font-weight:700;line-height:1.5;color:var(--au-l)}
 
 /* ===== «عرض دراسة الحالة» ===== */
-#cases .dt>summary{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:46px;padding:10px 0 0;border:0;border-top:1px solid var(--cs-bd);font-size:14.5px;font-weight:600;color:var(--g);text-decoration:none;cursor:pointer}
+#cases .dt>summary{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:52px;padding:0 18px;border:0;font-size:14.5px;font-weight:700;color:var(--g);text-decoration:none;cursor:pointer}
 #cases .dt>summary:hover{opacity:1;color:var(--au-d)}
-#cases .dt>summary::after{content:"";flex:none;width:9px;height:9px;margin-inline-end:4px;border-inline-end:2px solid var(--au-d);border-bottom:2px solid var(--au-d);rotate:45deg;translate:0 -2px}
-#cases .dt[open]>summary::after{rotate:-135deg;translate:0 2px}
+#cases .dt>summary::after{content:"\2190";font-size:18px;font-weight:400;line-height:1}
+#cases .dt>summary:hover::after{translate:-5px 0}
+#cases .dt[open]>summary::after{rotate:90deg}
+#cases .dt[open]>summary:hover::after{translate:0 0}
 
 /* ورقة الحقائق: النبذة مكرّرة أعلى البطاقة فتُخفى، والتحدي والاستراتيجية بعرض كامل */
 #cases .dt dl{display:grid;grid-template-columns:max-content 1fr;column-gap:22px;gap:0 22px;margin-top:6px;font-size:14.5px}
@@ -52,9 +57,10 @@
 #cases .dt dd>a.lk:hover{opacity:1;background:var(--au-d);color:#fff}
 
 /* ===== الملاحظة الختامية ===== */
-#cases .ix{display:grid;grid-template-columns:minmax(150px,230px) 1fr;gap:6px 28px;align-items:baseline;max-width:none;margin-top:44px;padding:22px 30px;background:#fffdf8;border:1px solid var(--cs-bd);border-inline-start:4px solid var(--au-d);border-radius:var(--rad)}
-#cases .ix b{margin:0;font-size:21px;line-height:1.5;color:var(--g)}
-#cases .ix p{max-width:none;font-size:15px;color:#3a3a35}
+#cases .ix{position:relative;overflow:hidden;max-width:none;margin-top:36px;padding:28px 34px;color:#fff;border:0;border-inline-start:4px solid var(--au);border-radius:var(--rad);background:linear-gradient(135deg,var(--g),#16403f);box-shadow:var(--sh2)}
+#cases .ix::after{content:"§";position:absolute;inset-inline-end:26px;top:50%;translate:0 -50%;font-family:var(--serif);font-size:130px;line-height:1;color:var(--au);opacity:.12;pointer-events:none}
+#cases .ix b{display:block;margin-bottom:6px;font-family:var(--serif);font-size:24px;color:var(--au-l)}
+#cases .ix p{max-width:720px;margin:0;color:rgba(255,255,255,.9);line-height:1.95}
 
 @media(prefers-reduced-motion:no-preference){
   #cases .dt>summary::after{transition:rotate .3s var(--ease),translate .3s var(--ease)}
@@ -69,8 +75,9 @@
   #cases .w{grid-template-columns:1fr}
   #cases .w>#cc{grid-column:1;margin-top:14px!important}
   #cases .cb{padding:18px 18px 20px}
-  #cases .ch{padding:14px 16px}
-  #cases .ix{grid-template-columns:1fr;padding:18px 20px}
+  #cases .ch{padding:12px 16px}
+  #cases .ix{padding:22px 20px}
+  #cases .ix::after{font-size:96px}
   #cases .dt dl{grid-template-columns:1fr}
   #cases .dt dt,#cases .dt dd{grid-column:1/-1}
   #cases .dt dd{padding-top:2px;padding-bottom:10px;border-top:0}

@@ -18,6 +18,9 @@ html.hq-off .i-sr{--p:url(../img/sr.jpg)}
 html.hq-off .i-cf{--p:url(../img/hero.jpg)}
 .i-sd{--p:url(https://images.unsplash.com/photo-1711003596872-aa68f08a4b8e?auto=format&fit=crop&w=1400&q=80);background-image:var(--p)}
 html.hq-off .i-sd{--p:url(../img/court.jpg)}
+/* «من نحن» في الرئيسية (.ab-fig): صورة محلية (مطرقة القاضي وميزان العدالة ومحامٍ يكتب) من img/about.jpg، فلا تعتمد على Unsplash.
+   لتغييرها استبدل الملف img/about.jpg بنفس الاسم (يُفضَّل عرض 1400px فأكثر ونسبة قريبة من 5:4) */
+.i-ab{--p:url(../img/about.jpg);background-image:var(--p);background-position:40% center}
 .k2{--p:url(https://images.unsplash.com/photo-1479142506502-19b3a3b7ff33?auto=format&fit=crop&w=1400&q=80);background-image:var(--p)}
 html.hq-off .k2{--p:url(../img/c3_1.jpg)}
 .k3{--p:url(https://images.unsplash.com/photo-1755551636128-2385f552d7ec?auto=format&fit=crop&w=1400&q=80);background-image:var(--p)}
