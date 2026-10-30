@@ -1,11 +1,13 @@
 /* رواد القانون — طبقة الحركة الاحترافية (تُحمَّل بعد refine.css). كلها داخل no-preference فتتوقف تلقائيًا مع «تقليل الحركة». */
 @media (prefers-reduced-motion:no-preference){
-:root{--mo:cubic-bezier(.22,.8,.24,1);--md:.8s;interpolate-size:allow-keywords}
+:root{--mo:cubic-bezier(.22,.8,.24,1);--md:.6s;interpolate-size:allow-keywords}
 
 /* 1) ظهور أنعم: انزلاق + تكبير طفيف، مع تحرير will-change بعد الانتهاء */
 .rv{transform:translate3d(0,28px,0) scale(.985);will-change:opacity,transform;
  transition:opacity var(--md) var(--mo),transform var(--md) var(--mo),translate .4s var(--mo),box-shadow .4s var(--mo),border-color .3s}
 .js .rv.in,.rv.in{transform:none;will-change:auto}
+/* غلاف الشبكة (.gr) ظاهر دائمًا: كان يخفي كل البطاقات حتى يظهر 10% من ارتفاعه، وكل بطاقة داخله تظهر بدورها */
+.gr.rv{opacity:1!important;transform:none!important;transition:none!important}
 
 /* 2) دخول الهيدر عند التحميل */
 @keyframes m-drop{from{opacity:0;transform:translate3d(0,-14px,0)}}

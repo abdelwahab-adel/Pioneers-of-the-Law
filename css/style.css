@@ -287,8 +287,6 @@ header.scr{position:fixed;top:0;background:var(--c);color:var(--ink);border-bott
 .urg .w{margin-top:-96px;position:relative;z-index:3}
 .uc{background:#fff;padding:44px;border-top:3px solid var(--au);box-shadow:0 30px 70px rgba(10,44,45,.22);gap:48px}
 .nv a{position:relative}
-.nv ul a:after{content:"";position:absolute;inset-inline:0;bottom:-6px;height:1px;background:var(--au);transform:scaleX(0);transition:transform .2s}
-.nv ul a:hover:after{transform:scaleX(1)}
 @media(max-width:960px){.urg .w{margin-top:-60px}
 .uc{padding:28px 22px}
 .frm{outline-offset:8px}
@@ -333,7 +331,6 @@ header.scr{box-shadow:0 8px 28px rgba(10,44,45,.12)}
 .hd{transition:height .25s}
 header.scr .hd{height:68px}
 .nv ul a[aria-current]{font-weight:600}
-.nv ul a[aria-current]:after{transform:scaleX(1)}
 .hb{display:flex;flex-wrap:wrap;gap:12px 18px;align-items:center}
 .hb .bt{padding:12px 28px}
 .fn{font-size:13px;color:var(--mu);margin-top:18px;max-width:640px}

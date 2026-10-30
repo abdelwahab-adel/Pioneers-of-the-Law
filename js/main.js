@@ -18,7 +18,7 @@
   };
 
   /* Search index: [title, section anchor, kind] */
-  var DATA = [["القانون التجاري", "#practice", "مجال ممارسة"], ["القانون الجنائي", "#practice", "مجال ممارسة"], ["القضايا المدنية", "#practice", "مجال ممارسة"], ["الأحوال الشخصية", "#practice", "مجال ممارسة"], ["تأسيس الشركات", "#practice", "مجال ممارسة"], ["العقود", "#practice", "مجال ممارسة"], ["الاستثمار", "#practice", "مجال ممارسة"], ["التحكيم", "#practice", "مجال ممارسة"], ["الملكية الفكرية", "#practice", "مجال ممارسة"], ["الضرائب", "#practice", "مجال ممارسة"], ["العقارات", "#practice", "مجال ممارسة"], ["التنفيذ", "#practice", "مجال ممارسة"], ["التحصيل", "#practice", "مجال ممارسة"], ["قضايا العمل", "#practice", "مجال ممارسة"], ["التقاضي الدولي", "#practice", "مجال ممارسة"], ["تسوية نزاع تجاري دولي بمطالبة كبرى", "#cases", "دراسة حالة"], ["نزاع ملكية عقاري متعدد الأطراف", "#cases", "دراسة حالة"], ["اندماج استراتيجي بين شركتين تقنيتين", "#cases", "دراسة حالة"], ["تحكيم تجاري أمام مركز دولي مرموق", "#cases", "دراسة حالة"], ["دفاع في قضية جنائية معقدة", "#cases", "دراسة حالة"], ["تحصيل مطالبات مالية متعثرة", "#cases", "دراسة حالة"], ["التعديلات الجديدة على نظام الشركات وأثرها على الحوكمة", "#articles", "مقال"], ["خمس نقاط يجب مراجعتها قبل توقيع أي عقد تجاري", "#articles", "مقال"], ["التحكيم التجاري كبديل استراتيجي عن التقاضي التقليدي", "#articles", "مقال"], ["أبرز التعديلات على نظام العمل ومتطلبات الامتثال", "#articles", "مقال"], ["حماية العلامة التجارية: خطوات التسجيل والدفاع عن الحقوق", "#articles", "مقال"], ["التوثيق العقاري الإلكتروني وأثره على تقليل المنازعات", "#articles", "مقال"]];
+  var DATA = [["القانون التجاري", "practice/commercial-law.html", "مجال ممارسة"], ["القانون الجنائي", "practice/criminal-law.html", "مجال ممارسة"], ["القضايا المدنية", "practice/civil-cases.html", "مجال ممارسة"], ["الأحوال الشخصية", "practice/personal-status.html", "مجال ممارسة"], ["تأسيس الشركات", "practice/company-formation.html", "مجال ممارسة"], ["العقود", "practice/contracts.html", "مجال ممارسة"], ["الاستثمار", "practice/investment.html", "مجال ممارسة"], ["التحكيم", "practice/arbitration.html", "مجال ممارسة"], ["الملكية الفكرية", "practice/intellectual-property.html", "مجال ممارسة"], ["الضرائب", "practice/tax.html", "مجال ممارسة"], ["العقارات", "practice/real-estate.html", "مجال ممارسة"], ["التنفيذ", "practice/enforcement.html", "مجال ممارسة"], ["التحصيل", "practice/debt-collection.html", "مجال ممارسة"], ["قضايا العمل", "practice/labor-cases.html", "مجال ممارسة"], ["التقاضي الدولي", "practice/international-litigation.html", "مجال ممارسة"], ["تسوية نزاع تجاري دولي بمطالبة كبرى", "index.html#cases", "دراسة حالة"], ["نزاع ملكية عقاري متعدد الأطراف", "index.html#cases", "دراسة حالة"], ["اندماج استراتيجي بين شركتين تقنيتين", "index.html#cases", "دراسة حالة"], ["تحكيم تجاري أمام مركز دولي مرموق", "index.html#cases", "دراسة حالة"], ["دفاع في قضية جنائية معقدة", "index.html#cases", "دراسة حالة"], ["تحصيل مطالبات مالية متعثرة", "index.html#cases", "دراسة حالة"], ["التعديلات الجديدة على نظام الشركات وأثرها على الحوكمة", "index.html#articles", "مقال"], ["خمس نقاط يجب مراجعتها قبل توقيع أي عقد تجاري", "index.html#articles", "مقال"], ["التحكيم التجاري كبديل استراتيجي عن التقاضي التقليدي", "index.html#articles", "مقال"], ["أبرز التعديلات على نظام العمل ومتطلبات الامتثال", "index.html#articles", "مقال"], ["حماية العلامة التجارية: خطوات التسجيل والدفاع عن الحقوق", "index.html#articles", "مقال"], ["التوثيق العقاري الإلكتروني وأثره على تقليل المنازعات", "index.html#articles", "مقال"], ["من نحن", "about.html", "صفحة"], ["مسيرتنا المهنية", "about.html#timeline", "صفحة"], ["الشريك المدير", "about.html#partner", "صفحة"], ["الفريق القانوني", "about.html#team", "صفحة"], ["منهجية العمل", "about.html#method", "صفحة"], ["الأسئلة الشائعة", "faq.html", "صفحة"], ["تواصل معنا", "contact.html", "صفحة"]];
 
   var $ = function (sel, root) { return (root || document).querySelector(sel); };
   var $$ = function (sel, root) { return Array.prototype.slice.call((root || document).querySelectorAll(sel)); };
@@ -61,7 +61,7 @@
         if (link) link.setAttribute('aria-current', 'true');
       });
     }, { rootMargin: '-40% 0px -55% 0px' });
-    Object.keys(navLinks).forEach(function (h) { var s = $(h); if (s) spy.observe(s); });
+    Object.keys(navLinks).forEach(function (h) { var s = h.charAt(0) === '#' ? $(h) : null; if (s) spy.observe(s); });
   }
 
   /* ---------- Hero headline rotation: 3 texts, every 4s; the old text fully leaves before the next enters ---------- */
@@ -109,11 +109,11 @@
       entries.forEach(function (en) {
         if (en.isIntersecting) { en.target.classList.add('in'); reveal.unobserve(en.target); }
       });
-    }, { threshold: 0.1, rootMargin: '0px 0px -6% 0px' });
+    }, { threshold: 0, rootMargin: '0px 0px 10% 0px' });   /* threshold 0: الحاويات الطويلة (مثل شبكة التخصصات) كانت تحتاج ظهور 10% من ارتفاعها كله فتتأخر أو لا تظهر على الجوال */
     $$('main .w > *, .gr > *, .sh3 > *, .wc > *, .tl > *, .jr > *, .st > *').forEach(function (el) {
       var index = Array.prototype.indexOf.call(el.parentNode.children, el);
       el.classList.add('rv');
-      el.style.transitionDelay = Math.min(index, 5) * 70 + 'ms';
+      el.style.transitionDelay = Math.min(index, 4) * 50 + 'ms';
       reveal.observe(el);
     });
   }
@@ -149,8 +149,8 @@
   });
 
   /* ---------- Forms: collect → send → success / error ---------- */
-  var errBox = $('#fe');
-  var errorText = errBox.dataset.t;
+  var errBox = $('#fe') || document.createElement('p');
+  var errorText = errBox.dataset.t || 'تعذّر الإرسال، حاول مرة أخرى.';
   function send(form, extra, onOk, onFail) {
     var payload = {};
     $$('input,select', form).forEach(function (f, i) {
@@ -204,6 +204,7 @@
   });
 
   /* ---------- Booking form: 3 steps (the last step is the confirmation) ---------- */
+  if ($('#bk')) {
   var booking = $('#bk');
   var steps = $$('.stp', booking);
   var stepLabel = $('#sn');
@@ -230,12 +231,13 @@
     b.addEventListener('click', function () { showStep(current - 1); });
   });
   showStep(0);
+  }
 
   /* ---------- FAQ search ---------- */
   var faqInput = $('#fs');
   var faqItems = $$('.fq details');
   var noResults = $('#nf');
-  faqInput.addEventListener('input', function () {
+  if (faqInput) faqInput.addEventListener('input', function () {
     var q = faqInput.value.trim();
     var shown = 0;
     faqItems.forEach(function (item) {
@@ -261,7 +263,7 @@
       var a = document.createElement('a');
       var kind = document.createElement('small');
       kind.textContent = r[2];
-      a.href = r[1];
+      a.href = (document.documentElement.getAttribute('data-root') || '') + r[1];
       a.appendChild(kind);
       a.appendChild(document.createTextNode(r[0]));
       a.addEventListener('click', closeSearch);
@@ -287,9 +289,9 @@
       if (!e.isIntersecting) return;
       var t = e.target; t.classList.add('in'); io.unobserve(t); setTimeout(function () { t.style.transitionDelay = ''; }, 1200);
     });
-  }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+  }, { threshold: 0, rootMargin: '0px 0px 10% 0px' });
   [].forEach.call(document.querySelectorAll(sel), function (el, i) {
-    el.classList.add('rv'); el.style.transitionDelay = (i % 4) * 70 + 'ms'; io.observe(el);
+    el.classList.add('rv'); el.style.transitionDelay = (i % 4) * 50 + 'ms'; io.observe(el);
   });
   var co = new IntersectionObserver(function (es) {
     es.forEach(function (e) {

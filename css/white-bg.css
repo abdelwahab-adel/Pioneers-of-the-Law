@@ -1,11 +1,10 @@
 /* رواد القانون — خلفية بيضاء (#fff) لأقسام محددة بدل الكريمي.
-   الأقسام: الاستشارة العاجلة (#urgent) · موثوقون من (.tr) · من نحن (#about) · مسيرتنا المهنية (#timeline)
+   الأقسام: موثوقون من (.tr) · من نحن (#about) · مسيرتنا المهنية (#timeline)
    · الفريق القانوني (#team) · لماذا رواد القانون (#why) · دراسات الحالة (#cases) · الاعتمادات (#accred)
    · الأسئلة الشائعة (#faq) · مركز المعرفة (#articles) · تواصل معنا (#contact) · زورونا في الرياض (#location).
-   تُحمَّل آخر ملف CSS، وبمحدِّدات تغلب `.c` و`.c2` و`.urg` و`#location` دون لمس باقي الأقسام.
+   تُحمَّل آخر ملف CSS، وبمحدِّدات تغلب `.c` و`.c2` و`#location` دون لمس باقي الأقسام.
    للتراجع احذف سطر ربط هذا الملف من index.html. */
 
-#urgent,
 section.tr,
 #about,
 #timeline,
@@ -17,3 +16,28 @@ section.tr,
 #articles,
 #contact,
 #location{background:#fff}
+
+/* مجالات الممارسة (#practice) وآراء العملاء (#voices): خلفية بيضاء بدل الأخضر الداكن، ونصوص العناوين تتحوّل للداكن.
+   بطاقات المجالات بيضاء، وبطاقات الآراء تبقى داكنة. للتراجع احذف هذا المقطع. */
+#practice,#voices{background:#fff;color:var(--ink)}
+#practice .lb,#voices .lb{color:var(--au-d)}
+#practice .h2,#voices .h2{color:var(--g)}
+#practice>.w>.ld{color:#444}
+#practice :focus-visible,#voices :focus-visible{outline-color:var(--au-d)}
+#practice .fl button{color:var(--g);border-color:#c9bfa3}
+#practice .fl button:hover{color:var(--au-d);border-color:var(--au-d)}
+#practice .fl button.on{background:var(--g);border-color:var(--g);color:#fff}
+#practice>.w>.fn{color:var(--mu)}
+#practice>.w>.ix{background:var(--c);color:var(--ink);border-inline-start-color:var(--au-d)}
+#practice>.w>.ix b{color:var(--g)}
+#practice .pm .bt.f{background:var(--g);border-color:var(--g);color:#fff}
+#practice .pm .bt.f:hover{background:var(--au-l);border-color:var(--au-l);color:var(--g)}
+
+/* بطاقات مجالات الممارسة: بيضاء بحدّ كريمي وظل ناعم، ونصوصها داكنة */
+#practice .pc{background:#fff;border:1px solid #e3d9bf;border-top:1px solid #e3d9bf;box-shadow:0 10px 28px rgba(10,44,45,.08)}
+#practice .pc:hover{border-color:var(--au);box-shadow:0 18px 40px rgba(10,44,45,.14)}
+#practice .pc h3{color:var(--g)}
+#practice .pc p{color:#444}
+#practice .pc .tgs i{color:var(--au-d);background:#f7f1de;border-color:#dccf9c}
+#practice .pc .more{background:var(--g);color:#fff}
+#practice .pc:hover .more{background:var(--au-l);color:var(--g)}

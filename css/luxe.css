@@ -74,8 +74,8 @@ body{text-rendering:optimizeLegibility}
 .bt.f{position:relative;overflow:hidden}
 .bt.f::after{content:"";position:absolute;inset:0;background:linear-gradient(105deg,transparent 35%,rgba(255,255,255,.4) 50%,transparent 65%);transform:translateX(-130%);transition:transform .65s ease;pointer-events:none}
 .bt.f:hover::after{transform:translateX(130%)}
-.nv ul a{background:linear-gradient(currentColor,currentColor) no-repeat 100% 100%/0 2px;padding-block:6px;transition:background-size .3s ease}
-.nv ul a:hover{background-size:100% 2px;opacity:1}
+.nv ul a{padding-block:6px;transition:opacity .25s ease}
+.nv ul a:hover{opacity:.7}
 .pk,.tm,.sc,.wcd,.qb,.cc,.ar{transition:opacity .6s ease,transform .6s ease,translate .3s ease,box-shadow .3s ease}
 .pk:hover,.tm:hover,.sc:hover,.wcd:hover,.qb:hover,.cc:hover,.ar:hover{translate:0 -6px;box-shadow:0 16px 36px rgba(10,44,45,.2)}
 .jr li.in .dot{animation:ring 1.6s ease-out 2}

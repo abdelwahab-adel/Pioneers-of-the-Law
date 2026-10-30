@@ -8,10 +8,14 @@
   --hr-ivory:#fff8ed;
   --hr-mist:#dbe4e1;
   --hr-ease:cubic-bezier(.2,.7,.2,1);
+  --hr-shade:.5; /* قوة الظل الموحّد فوق الصورة (0 = بلا ظل، 1 = أسود كامل) */
   /* background المختصر يمسح أي background-image قديمة (كانت صورة .i-hero تُلغي التدرّج الداكن) */
   background:var(--hr-teal);
   isolation:isolate;
-  padding:144px 0 164px;
+  /* الهيرو يملأ الشاشة: النص في المنتصف والشريط السفلي ثابت في القاع (الهيدر 84px) */
+  align-items:stretch;
+  min-height:clamp(640px,100svh,900px);
+  padding:calc(84px + clamp(20px,3vh,44px)) 0 0;
 }
 
 /* ===== طبقتا الخلفية: الصورة ثم التدرّج الداكن ===== */
@@ -26,35 +30,42 @@
   z-index:0;
   background:
     linear-gradient(180deg,rgba(6,31,32,.8) 0,rgba(6,31,32,0) 26%),
-    linear-gradient(0deg,rgba(6,31,32,.92) 0,rgba(6,31,32,0) 38%);
-  /* أُزيل التدرّج الجانبي الكثيف من اليمين (linear-gradient(270deg,…)) — بقي العلوي والسفلي فقط */
+    linear-gradient(0deg,rgba(6,31,32,.92) 0,rgba(6,31,32,0) 38%),
+    linear-gradient(rgba(6,31,32,var(--hr-shade)),rgba(6,31,32,var(--hr-shade)));
+  /* بلا التدرّج الجانبي الكثيف من اليمين؛ بدلًا منه ظل موحّد متساوٍ على كل الصورة (--hr-shade) */
 }
 
 /* ===== الحاوية ===== */
-.hr2 .hc{gap:clamp(36px,5.6vh,56px)}
+.hr2 .hc{justify-content:space-between;gap:0}
+.hr2 .sls{flex:1;display:flex;align-items:center;padding-block:clamp(20px,4vh,48px)}
 .hr2 :focus-visible{outline-color:var(--hr-gold)}
 
 /* ===== النص ===== */
-.hr2 .sl1{max-width:780px}
+.hr2 .sl1{position:relative;max-width:820px;padding-inline-start:clamp(22px,2.6vw,40px)}
+.hr2 .sl1::before{
+  content:"";position:absolute;inset-block:4px;inset-inline-start:0;width:2px;border-radius:2px;
+  background:linear-gradient(180deg,var(--hr-gold) 0,rgba(228,211,154,.5) 55%,rgba(228,211,154,0) 100%);
+}
 .hr2 .sl1 .lb{
   display:flex;align-items:center;gap:0;
   margin:0;font-size:15px;font-weight:600;letter-spacing:0;color:var(--hr-gold);
 }
-.hr2 .sl1 .lb:before{width:34px;margin-inline-end:14px;background:var(--hr-gold);opacity:.8}
+.hr2 .sl1 .lb:before{display:none}
 .hr2 .h1{
-  margin:18px 0 22px;
-  font-size:clamp(38px,5vw,72px);
-  line-height:1.3;
+  margin:16px 0 20px;
+  font-size:clamp(38px,4.7vw,68px);
+  line-height:1.32;
   letter-spacing:0;
   color:var(--hr-ivory);
   text-wrap:balance;
   text-shadow:0 2px 28px rgba(6,31,32,.45);
 }
 .hr2 .h1 span{color:var(--hr-gold)}
-.hr2 .sl1 h2.h1{font-size:clamp(34px,4.4vw,60px);line-height:1.4;max-width:15em}
+.hr2 .sl1 h2.h1{font-size:clamp(38px,4.7vw,68px);line-height:1.32;max-width:none}
 .hr2 .sl1 p{
-  max-width:34em;margin-bottom:30px;
-  font-size:18px;line-height:2;color:var(--hr-mist);
+  max-width:30em;margin-bottom:34px;
+  font-size:clamp(16px,1.3vw,18px);line-height:1.95;color:var(--hr-mist);
+  text-shadow:0 1px 14px rgba(6,31,32,.55);
   text-wrap:pretty;
 }
 
@@ -68,12 +79,11 @@
 .hr2 .hb .bt:hover{opacity:1}
 .hr2 .hb .bt.f,
 .hr2 .hb .bt.f:hover{background:var(--hr-gold);border-color:var(--hr-gold);color:var(--hr-night)}
-.hr2 .hb .bt.f{box-shadow:0 12px 30px -12px rgba(228,211,154,.55)}
 .hr2 .hb .bt.f:hover{background:var(--hr-ivory);border-color:var(--hr-ivory)}
 .hr2 .hb .bt:not(.f){
   color:var(--hr-ivory);
-  border-color:rgba(255,248,237,.5);
-  background:rgba(255,255,255,.05);
+  border-color:rgba(255,248,237,.4);
+  background:transparent;
   -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);
 }
 .hr2 .hb .bt:not(.f):hover{border-color:var(--hr-gold);background:rgba(255,255,255,.12);color:#fff}
@@ -91,15 +101,15 @@
 /* ===== شريط أسفل الهيرو: الأسهم والعدّاد + الرقم ===== */
 .hr2 .hf{
   justify-content:space-between;gap:24px;
-  padding-top:22px;
-  border-top:1px solid rgba(228,211,154,.3);
+  padding:20px 0 clamp(20px,3.4vh,32px);
+  border-top:1px solid rgba(228,211,154,.28);
 }
 .hr2 .hf .os{
   margin-inline-start:0;
   display:flex;align-items:baseline;gap:12px;
   padding:0;border:0;text-align:start;height:auto;
 }
-.hr2 .os b{display:inline;font-family:var(--serif);font-size:44px;font-weight:700;line-height:1;color:var(--hr-gold)}
+.hr2 .os b{display:inline;font-family:var(--serif);font-size:42px;font-weight:700;line-height:1;color:var(--hr-gold)}
 .hr2 .os span{font-size:15px;color:var(--hr-mist)}
 
 /* ===== دخول الهيرو: لحظة واحدة منسّقة (عناصر الشريحة تتتابع، ثم الشريط) ===== */
@@ -111,19 +121,19 @@
 
 /* ===== التابلت والجوال ===== */
 @media(max-width:960px){
-  .hr2.im.i-hero{padding:calc(var(--hh) + 36px) 0 96px}
+  .hr2.im.i-hero{min-height:clamp(600px,100svh,860px);padding:calc(var(--hh) + 20px) 0 0}
   .hr2.i-hero::before{background-position:62% 30%}
   .hr2.i-hero::after{
     background:
       linear-gradient(180deg,rgba(6,31,32,.93) 0,rgba(8,38,39,.8) 50%,rgba(6,31,32,.9) 100%);
   }
-  .hr2 .hc{gap:36px}
+  .hr2 .sl1{padding-inline-start:20px}
   .hr2 .h1{margin:16px 0 20px;font-size:clamp(34px,9.6vw,52px)}
   .hr2 .sl1 h2.h1{font-size:clamp(30px,8.2vw,44px)}
   .hr2 .sl1 p{font-size:16.5px;line-height:1.95;margin-bottom:28px}
   .hr2 .hb .bt{flex:1 1 150px;padding-inline:18px;font-size:15px;white-space:nowrap}
   .hr2 .hb .lk{flex:1 1 100%;margin:4px 0 0;justify-content:center}
-  .hr2 .hf{flex-wrap:nowrap;padding-top:18px}
+  .hr2 .hf{flex-wrap:nowrap;padding-top:16px}
   .hr2 .os b{font-size:34px}
 }
 @media(min-width:481px) and (max-width:960px){
@@ -136,7 +146,8 @@
 
 
 /* ===== تدوير العناوين: ثلاثة نصوص متراكبة في الخلية نفسها، فلا يتحرك الارتفاع ولا الأزرار ===== */
-.hr2 .hx{display:grid}
+/* .hx قاعدة قديمة في style.css تضيف حشوة 56/72/140px وفجوة 48px؛ تُصفَّر هنا فيصطف العنوان مع الوسم والأزرار */
+.hr2 .hx{display:grid;padding:0;gap:0}
 .hr2 .hx{--hx-e:cubic-bezier(.22,.8,.24,1)}
 .hr2 .hx-i{grid-area:1/1;visibility:hidden}
 .hr2 .hx-i>*{opacity:0;translate:0 18px;filter:blur(8px);transition:none}
@@ -146,7 +157,7 @@
 .hr2 .hx-i.out{visibility:visible}
 .hr2 .hx-i.out>*{opacity:0;translate:0 -10px;filter:blur(6px);transition:opacity .6s ease,translate .6s ease,filter .6s ease}
 /* العناوين الفرعية بنفس مقاس العنوان الأول */
-.hr2 .sl1 .hx h2.h1{font-size:clamp(38px,5vw,72px);line-height:1.3;max-width:none}
+.hr2 .sl1 .hx h2.h1{font-size:clamp(38px,4.7vw,68px);line-height:1.32;max-width:none}
 @media(prefers-reduced-motion:reduce){.hr2 .hx-i>*{transition:none!important}}
 @media(max-width:960px){
   .hr2 .sl1 .hx h2.h1{font-size:clamp(34px,9.6vw,52px)}
