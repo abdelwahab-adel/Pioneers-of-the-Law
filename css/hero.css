@@ -26,8 +26,8 @@
   z-index:0;
   background:
     linear-gradient(180deg,rgba(6,31,32,.8) 0,rgba(6,31,32,0) 26%),
-    linear-gradient(0deg,rgba(6,31,32,.92) 0,rgba(6,31,32,0) 38%),
-    linear-gradient(270deg,rgba(6,31,32,.97) 0,rgba(8,36,37,.9) 34%,rgba(10,44,45,.56) 64%,rgba(10,44,45,.3) 100%);
+    linear-gradient(0deg,rgba(6,31,32,.92) 0,rgba(6,31,32,0) 38%);
+  /* أُزيل التدرّج الجانبي الكثيف من اليمين (linear-gradient(270deg,…)) — بقي العلوي والسفلي فقط */
 }
 
 /* ===== الحاوية ===== */

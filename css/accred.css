@@ -1,0 +1,60 @@
+/* رواد القانون — قسم «اعتمادات وعضويات مهنية» #accred.
+   عنوان موسّط بخط ذهبي (مثل «لماذا رواد القانون»)، ثم ست بطاقات بيضاء متساوية، ثم صف ختامي:
+   لوحة التحقق (ملاحظة + قائمة داكنة) بجانب الصورة. لا تغيير في أي نص، وتغيير HTML بإعادة ترتيب العناصر فقط.
+   يُحمَّل بعد voices.css. للتراجع احذف سطر ربطه من index.html وأعد ترتيب HTML القديم. */
+
+#accred{--ac-bd:#e3d9bf}
+
+/* ===== العنوان ===== */
+#accred .ac-head{max-width:760px;margin:0 auto;text-align:center}
+#accred .ac-head .lb{margin-bottom:10px}
+#accred .ac-head .h2::after{content:"";display:block;width:56px;height:3px;margin:20px auto 0;background:var(--au);border-radius:2px}
+
+/* ===== البطاقات الست ===== */
+#accred .vl{list-style:none;display:grid;grid-template-columns:1fr;gap:18px;margin:52px 0 0;padding:0}
+#accred .vl li{
+  display:flex;flex-direction:column;align-items:flex-start;gap:18px;margin:0;padding:26px 24px 28px;
+  background:#fff;border:1px solid var(--ac-bd);border-top:3px solid var(--au);border-radius:var(--rad);box-shadow:var(--sh1);
+  transition:border-color .3s,box-shadow .3s,translate .35s var(--ease);
+}
+#accred .vl .ib.im{width:56px;height:56px;border-radius:14px;box-shadow:0 6px 16px rgba(10,44,45,.18)}
+#accred .vl b{font-family:var(--serif);font-size:21px;font-weight:700;line-height:1.5;color:var(--g)}
+#accred .vl li span{margin-top:6px;font-size:14.5px;line-height:1.85;color:#4a4a44}
+@media(hover:hover){#accred .vl li:hover{border-top-color:var(--au-d);box-shadow:var(--sh2);translate:0 -3px}}
+
+/* ===== الصف الختامي: لوحة التحقق + الصورة ===== */
+#accred .ac-foot{display:grid;grid-template-columns:1fr;gap:44px;margin-top:56px;align-items:stretch}
+#accred .ac-side{display:flex;flex-direction:column;gap:20px;min-width:0}
+
+/* ملاحظة «اطلب بيانات الترخيص» */
+#accred .ix{margin:0;max-width:none;padding:20px 24px;background:rgba(184,170,102,.16);border:0;border-inline-start:4px solid var(--au-d);border-radius:var(--rad)}
+#accred .ix b{margin-bottom:4px;font-family:var(--serif);font-size:21px;color:var(--g)}
+#accred .ix p{font-size:15px;line-height:1.9;color:#33332e}
+
+/* «كيف تتحقق…»: لوحة داكنة بخطوات مرقّمة */
+#accred .ck{margin:0;padding:28px 30px 18px;background:linear-gradient(160deg,#10403f,var(--g));border-top:3px solid var(--au);border-radius:var(--rad);box-shadow:var(--sh2)}
+#accred .ck h3{margin:0 0 10px;font-size:23px;line-height:1.5}
+#accred .ck li{align-items:flex-start;padding:14px 0;font-size:15.5px}
+#accred .ck li::before{width:28px;height:28px;margin-top:1px}
+
+/* الصورة */
+#accred .ac-foot .cv{aspect-ratio:16/10;min-height:0;border-radius:var(--rad);outline-offset:10px}
+
+/* ===== ≥ 700px: عمودان ===== */
+@media(min-width:700px){
+  #accred .vl{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+}
+
+/* ===== ≥ 960px: ثلاثة أعمدة، والصف الختامي لوحتان ===== */
+@media(min-width:960px){
+  #accred .vl{grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+  #accred .ac-foot{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(48px,6vw,80px)}
+  #accred .ac-foot .cv{aspect-ratio:auto;min-height:420px}
+}
+
+@media(max-width:600px){
+  #accred .vl{margin-top:36px}
+  #accred .vl li{padding:22px 20px 24px}
+  #accred .ac-foot{margin-top:44px}
+  #accred .ck{padding:22px 20px 12px}
+}

@@ -1,0 +1,136 @@
+/* رواد القانون — بطاقتا «اقرأ المقال كاملاً» (مركز المعرفة) و«عرض دراسة الحالة» المنبثقتان.
+   dialog أصلي واحد (.mdl) يبنيه js/modals.js من محتوى <details> نفسه؛ والصنف .is-case يميّز دراسة الحالة.
+   يُحمَّل بعد باقي ملفات الـCSS. للتراجع احذف سطر ربط هذا الملف وملف js/modals.js من index.html. */
+
+html.mdl-lock{overflow:hidden}
+
+/* ===== الإطار ===== */
+dialog.mdl{
+  --mdl-px:40px;
+  position:fixed;inset:0;margin:auto;padding:0;border:0;overflow:hidden;
+  width:min(780px,calc(100% - 32px));max-width:none;
+  height:fit-content;max-height:min(90vh,900px);
+  border-radius:18px;background:#fffdf8;color:var(--ink);
+  box-shadow:0 44px 110px -24px rgba(3,20,21,.65),0 0 0 1px rgba(184,170,102,.4);
+}
+@supports(height:1dvh){dialog.mdl{max-height:min(90dvh,900px)}}
+dialog.mdl.is-case{width:min(860px,calc(100% - 32px))}
+dialog.mdl[open]{display:flex;flex-direction:column}
+dialog.mdl::backdrop{background:rgba(6,30,31,.68);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+
+/* منطقة التمرير: زر الإغلاق خارجها فيبقى ظاهرًا أثناء القراءة */
+.mdl-sc{flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:var(--au) transparent}
+
+.mdl-x{
+  position:absolute;z-index:5;top:16px;inset-inline-end:24px;width:38px;height:38px;
+  display:grid;place-items:center;padding:0;border:1px solid rgba(228,211,154,.7);border-radius:50%;
+  background:rgba(6,30,31,.9);color:#fff;font-size:15px;line-height:1;cursor:pointer;
+  box-shadow:0 4px 14px rgba(6,30,31,.3);
+  transition:background-color .2s,color .2s,border-color .2s;
+}
+.mdl-x:hover,.mdl-x:focus-visible{background:var(--au-l);border-color:var(--au-l);color:var(--g)}
+
+/* ===== الرأس: الصورة تتدرّج إلى الأخضر الداكن، والعنوان بخط الهوية ===== */
+.mdl-hd{
+  position:relative;isolation:isolate;display:flex;flex-direction:column;justify-content:flex-end;
+  min-height:270px;padding:76px var(--mdl-px) 30px;background:var(--g);color:#fff;
+  border-bottom:3px solid var(--au);
+}
+.is-case .mdl-hd{min-height:240px;border-bottom:0}
+dialog.mdl .mdl-cover{position:absolute;inset:0;z-index:-1;width:auto;height:auto;margin:0;aspect-ratio:auto;border-radius:0}
+dialog.mdl .mdl-cover::after{display:none}
+dialog.mdl .mdl-cover::before{
+  background-image:linear-gradient(180deg,rgba(6,30,31,.2) 0%,rgba(6,30,31,.58) 48%,rgba(6,30,31,.95) 100%),var(--r,none),var(--p);
+  scale:1;animation:none;transition:none;will-change:auto;
+}
+.mdl-tag{align-self:flex-start;margin-bottom:14px;padding:3px 16px;border-radius:999px;background:rgba(255,248,237,.95);color:var(--g);font-size:13px;font-weight:600;line-height:1.8;box-shadow:0 2px 10px rgba(6,30,31,.25)}
+.mdl-hd h2{margin:0;font-family:var(--serif);font-size:clamp(26px,4.2vw,38px);font-weight:700;line-height:1.55;color:#fff;text-wrap:balance;text-shadow:0 2px 18px rgba(6,30,31,.5)}
+
+/* ===== المقال ===== */
+.mdl-meta{display:flex;flex-wrap:wrap;align-items:center;gap:8px 0;padding:14px var(--mdl-px);background:#fbf6e9;border-bottom:1px solid var(--bd);font-size:13.5px;color:var(--mu)}
+.mdl-meta>*{display:inline-flex;align-items:center;padding-inline:18px;border-inline-start:1px solid var(--bd)}
+.mdl-meta>:first-child{padding-inline-start:0;border-inline-start:0}
+.mdl-by{font-weight:700;color:#3b3b34}
+.mdl-by::before{content:"";width:18px;height:2px;margin-inline-end:9px;background:var(--au)}
+
+.mdl-bd{padding:34px var(--mdl-px) 6px}
+.mdl-lead{margin:0 0 30px;padding-inline-start:20px;border-inline-start:3px solid var(--au);font-family:var(--serif);font-size:clamp(19px,2.4vw,22px);line-height:2;color:var(--g)}
+.is-case .mdl-lead{margin-bottom:26px}
+.mdl-sec{margin-top:28px}
+.mdl-sec h3{margin:0 0 8px;font-family:var(--serif);font-size:clamp(20px,2.6vw,24px);font-weight:700;line-height:1.6;color:var(--g)}
+.mdl-sec h3::before{content:"";display:block;width:34px;height:2px;margin-bottom:12px;background:var(--au)}
+.mdl-sec p{margin:0;font-size:16.5px;line-height:2.05;color:#2d2d29}
+
+/* ===== دراسة الحالة: لوحة النتيجة ===== */
+.mdl-res{display:flex;flex-wrap:wrap;align-items:center;gap:12px 0;padding:22px var(--mdl-px) 28px;background:var(--g);color:#fff;border-bottom:3px solid var(--au)}
+.mdl-res strong{flex:none;padding-inline-end:34px;font-family:var(--serif);font-size:clamp(34px,5.2vw,50px);font-weight:700;line-height:1.3;color:var(--au-l)}
+.mdl-res ul{display:flex;flex-wrap:wrap;gap:8px 26px;flex:1 1 220px;margin:0;padding:0;padding-inline:34px 0;border-inline-start:1px solid rgba(228,211,154,.32);list-style:none}
+.mdl-res li{display:inline-flex;align-items:center;font-size:14.5px;line-height:1.6;color:#dbe5e1}
+.mdl-res li::before{content:"";flex:none;width:5px;height:5px;margin-inline-end:9px;border-radius:50%;background:var(--au)}
+
+/* التحدي ← الاستراتيجية */
+.mdl-duo{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:0 0 28px}
+.mdl-duo section{padding:22px 24px 24px;border-radius:12px}
+.mdl-duo h3{margin:0 0 8px;font-size:14px;font-weight:700;line-height:1.6}
+.mdl-duo p{margin:0;font-size:15.5px;line-height:1.95}
+.mdl-solo{grid-template-columns:1fr}
+.mdl-solo::after{display:none}
+.mdl-ch{background:#fbf6e9;border:1px solid var(--bd);color:#2d2d29}
+.mdl-ch h3{color:var(--au-d)}
+.mdl-st{background:var(--g);border:1px solid var(--g);color:#e9efec}
+.mdl-st h3{color:var(--au-l)}
+.mdl-duo::after{content:"←";position:absolute;z-index:1;top:50%;left:50%;translate:-50% -50%;width:40px;height:40px;display:grid;place-items:center;border:4px solid #fffdf8;border-radius:50%;background:var(--au-l);color:var(--g);font-size:17px;line-height:1;pointer-events:none}
+
+/* ملف القضية */
+.mdl-facts{display:grid;grid-template-columns:repeat(var(--n,5),minmax(0,1fr));gap:16px 20px;margin:0}
+.mdl-facts>div{padding-top:12px;border-top:1px solid var(--bd)}
+.mdl-facts>.wide{grid-column:1/-1}
+.mdl-facts dt{margin:0 0 3px;font-size:12.5px;font-weight:600;line-height:1.6;color:var(--au-d)}
+.mdl-facts dd{margin:0;font-size:15px;font-weight:600;line-height:1.7;color:#2a2a26}
+
+/* ===== التذييل: الملاحظات القانونية + دعوة الإجراء ===== */
+.mdl-ft{
+  display:flex;align-items:center;flex-wrap:wrap;gap:20px 32px;margin-top:36px;
+  padding:26px var(--mdl-px) calc(30px + env(safe-area-inset-bottom,0px));
+  background:linear-gradient(135deg,var(--g),#16403f);border-top:3px solid var(--au);color:rgba(255,255,255,.88);
+}
+.mdl-notes{flex:1 1 280px;display:grid;gap:6px}
+.mdl-notes p{margin:0;font-size:13px;line-height:1.9}
+dialog.mdl .mdl-cta{flex:none;gap:12px;min-height:50px;padding:10px 28px;border-color:var(--au-l);background:var(--au-l);color:var(--g);font-size:15px;font-weight:700;text-decoration:none}
+dialog.mdl .mdl-cta:hover{border-color:#fff;background:#fff;color:var(--g);opacity:1}
+.mdl-cta span{transition:translate .3s var(--ease,ease)}
+.mdl-cta:hover span{translate:-4px 0}
+
+/* ===== الحركة: ظهور البطاقة، واستقرار الصورة مرة واحدة ===== */
+@media(prefers-reduced-motion:no-preference){
+  @keyframes mdl-in{from{opacity:0;transform:translateY(24px) scale(.97)}}
+  @keyframes mdl-sheet{from{transform:translateY(100%)}}
+  @keyframes mdl-fade{from{opacity:0}}
+  @keyframes mdl-settle{from{scale:1.09}}
+  dialog.mdl[open]{animation:mdl-in .45s var(--mo,ease)}
+  dialog.mdl[open]::backdrop{animation:mdl-fade .3s ease}
+  dialog.mdl[open] .mdl-cover::before{animation:mdl-settle 1.4s var(--mo,ease) both}
+}
+
+/* ===== الشاشات الأصغر ===== */
+@media(max-width:700px){
+  dialog.mdl{--mdl-px:22px}
+  .mdl-duo{grid-template-columns:1fr;gap:14px}
+  .mdl-duo::after{display:none}
+  .mdl-facts{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .mdl-res strong{flex:0 0 100%;padding-inline-end:0}
+  .mdl-res ul{flex-basis:100%;padding-inline:0;border-inline-start:0}
+}
+@media(max-width:600px){
+  dialog.mdl,dialog.mdl.is-case{width:100%;margin:auto 0 0;max-height:92vh;border-radius:20px 20px 0 0}
+  @supports(height:1dvh){dialog.mdl,dialog.mdl.is-case{max-height:92dvh}}
+  .mdl-hd{min-height:220px;padding-top:70px;padding-bottom:24px}
+  .is-case .mdl-hd{min-height:210px}
+  .mdl-meta{padding-block:12px}
+  .mdl-bd{padding-top:26px}
+  .mdl-sec p{font-size:16px}
+  .mdl-cta{width:100%;justify-content:center}
+  .mdl-x{top:14px;inset-inline-end:16px}
+}
+@media(max-width:600px) and (prefers-reduced-motion:no-preference){dialog.mdl[open]{animation:mdl-sheet .42s var(--mo,ease)}}
+@media(prefers-reduced-motion:reduce){.mdl-x,.mdl-cta span{transition:none}}

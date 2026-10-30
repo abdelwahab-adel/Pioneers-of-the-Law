@@ -1,0 +1,80 @@
+/* رواد القانون — قسم «الأسئلة الشائعة» #faq.
+   عمودان على الشاشات الكبيرة: عمود جانبي ثابت عند التمرير (العنوان + البحث + «لم تجد سؤالك؟») وقائمة أسئلة كبطاقات.
+   السؤال المفتوح يأخذ إطارًا ذهبيًا وزر +/– دائريًا. لا تغيير في أي نص؛ HTML فقط لُفّ فيه العمود الجانبي بـ .fq-side.
+   الخلفية بيضاء (من css/white-bg.css) مثل «الاعتمادات» التي قبله، لذلك padding-top:0 هنا حتى لا تتضاعف المسافة بين القسمين.
+   يُحمَّل بعد accred.css. للتراجع احذف سطر ربطه من index.html. */
+
+#faq{padding-top:0}
+
+/* ===== الترتيب ===== */
+#faq .w{display:flex;flex-direction:column}
+#faq .fq-side{display:contents}
+#faq .fq-side>.lb{order:1}
+#faq .fq-side>.h2{order:2}
+#faq .fq-side>.ld{order:3}
+#faq .fq-side>.si{order:4}
+#faq .w>.fq{order:5}
+#faq .fq-side>.ix{order:6}
+
+@media(min-width:961px){
+  #faq .w{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,7fr);grid-template-rows:auto;column-gap:clamp(48px,6vw,88px);align-items:start}
+  #faq .fq-side{display:block;grid-column:1;grid-row:1;position:sticky;top:calc(var(--hh,68px) + 28px)}
+  #faq .w>.fq{grid-column:2;grid-row:1}
+}
+
+/* ===== العمود الجانبي ===== */
+#faq .ld{max-width:38ch}
+#faq .si{
+  display:block;width:100%;max-width:none;margin-top:26px;min-height:54px;padding:0 16px;padding-inline-start:50px;
+  border:1px solid #8a8468;border-radius:var(--rad);font-size:16px;
+  background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none' stroke='%238a6d1f' stroke-width='1.7' stroke-linecap='round'%3E%3Ccircle cx='8.5' cy='8.5' r='5.8'/%3E%3Cpath d='m13 13 4.5 4.5'/%3E%3C/svg%3E") no-repeat right 16px center/20px;
+  transition:border-color .25s,box-shadow .25s;
+}
+#faq .si:focus{border-color:var(--au-d);box-shadow:0 0 0 4px rgba(184,170,102,.28)}
+
+/* «لم تجد سؤالك؟»: نفس لغة بطاقات «لماذا نحن» والمقالات */
+#faq .ix{
+  position:relative;overflow:hidden;margin:28px 0 0;max-width:none;padding:24px 26px;color:#fff;
+  border:0;border-inline-start:4px solid var(--au);border-radius:var(--rad);
+  background:linear-gradient(135deg,var(--g),#16403f);box-shadow:var(--sh2);
+}
+#faq .ix b{margin-bottom:6px;font-family:var(--serif);font-size:23px;color:var(--au-l)}
+#faq .ix p{font-size:14.5px;line-height:1.95;color:rgba(255,255,255,.9)}
+
+/* ===== قائمة الأسئلة ===== */
+#faq .fq{display:grid;gap:12px;margin:40px 0 0;max-width:none}
+@media(min-width:961px){#faq .fq{margin-top:0}}
+
+#faq .fq details{
+  padding:0;background:var(--c);border:1px solid var(--bd);border-radius:var(--rad);
+  transition:border-color .3s,box-shadow .3s,background-color .3s;
+}
+#faq .fq details[open]{background:#f7eedb;border-color:var(--au);box-shadow:var(--sh1)}
+@media(hover:hover){#faq .fq details:not([open]):hover{border-color:var(--au)}}
+
+#faq .fq summary{
+  display:flex;align-items:center;gap:16px;min-height:64px;padding:16px 22px;
+  font-size:17px;font-weight:600;line-height:1.7;color:var(--g);
+}
+#faq .fq summary::after{
+  content:"";flex:none;margin-inline-start:auto;width:30px;height:30px;border:1px solid #cdbf86;border-radius:50%;
+  background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' stroke='%238a6d1f' stroke-width='1.6' stroke-linecap='round'%3E%3Cpath d='M6 1.5v9M1.5 6h9'/%3E%3C/svg%3E") center/12px no-repeat;
+  transition:background-color .3s,border-color .3s,rotate .35s var(--ease);
+}
+#faq .fq details[open] summary::after{
+  content:"";border-color:var(--g);
+  background:var(--g) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' stroke='%23e4d39a' stroke-width='1.6' stroke-linecap='round'%3E%3Cpath d='M1.5 6h9'/%3E%3C/svg%3E") center/12px no-repeat;
+}
+
+#faq .fq details>p{
+  max-width:none;margin:0 22px;padding:16px 0 22px;border-top:1px solid #efe7cf;
+  font-size:15.5px;line-height:2;color:#3f3f39;
+}
+
+#faq #nf{padding:28px 20px;text-align:center;color:var(--mu);border:1px dashed #cdbf86;border-radius:var(--rad);background:var(--c)}
+
+@media(max-width:600px){
+  #faq .fq summary{padding:14px 16px;font-size:16px}
+  #faq .fq details>p{margin-inline:16px;font-size:15px}
+  #faq .ix{padding:20px 20px}
+}

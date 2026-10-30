@@ -1,0 +1,68 @@
+/* رواد القانون — قسم «آراء عملائنا» #voices (تنسيق فقط، لا تغيير في HTML).
+   أربع بطاقات داكنة متطابقة الشكل والارتفاع جنبًا إلى جنب: أربعة أعمدة على الشاشات الكبيرة،
+   2×2 على التابلت، وعمود واحد على الجوال. «نوع الملف» (<em>) شارة ذهبية أعلى كل بطاقة،
+   واسم العميل وصفته أسفل خط فاصل ومثبّتان أسفل البطاقة في كل البطاقات على نفس المستوى.
+   يُحمَّل بعد باقي ملفات الـCSS. للتراجع احذف سطر ربط هذا الملف من index.html. */
+
+#voices{--vo-line:rgba(228,211,154,.26);--vo-pad:26px}
+
+/* ===== الشبكة: عمود → عمودان → أربعة أعمدة (العناصر تتمدّد لنفس الارتفاع تلقائيًا) ===== */
+#voices .gr{grid-template-columns:1fr;gap:20px;margin-top:48px}
+
+/* ===== البطاقة =====
+   footer و div داخله بلا صندوق، فيصير p و b و small و em عناصر شبكة مباشرة في blockquote.
+   الصف الثاني (النص) يأخذ المساحة المتبقية 1fr فيهبط الاسم والصفة إلى أسفل البطاقة بمحاذاة واحدة. */
+#voices .qb{
+  position:relative;isolation:isolate;display:grid;grid-template-columns:1fr auto;grid-template-rows:auto 1fr auto auto;
+  align-items:start;column-gap:16px;margin:0;padding:var(--vo-pad);
+  border:1px solid var(--vo-line);border-radius:var(--rad);
+  background:linear-gradient(180deg,#0f3a3b,#0b2f30);color:#fff;box-shadow:none;
+}
+#voices .qb footer,#voices .qb footer>div{display:contents}
+
+/* شارة نوع الملف */
+#voices .qb em{
+  grid-column:1;grid-row:1;justify-self:start;align-self:center;white-space:nowrap;
+  padding:3px 15px;border:1px solid rgba(228,211,154,.5);border-radius:999px;background:rgba(228,211,154,.08);
+  font-size:13px;font-style:normal;font-weight:600;line-height:1.8;color:var(--au-l);
+}
+
+/* علامة الاقتباس: أيقونة SVG داخل دائرة (لا تعتمد على خط فتختلّ محاذاتها) */
+#voices .qb::before{
+  content:"";grid-column:2;grid-row:1;align-self:center;position:static;inset:auto;width:40px;height:40px;opacity:1;border-radius:50%;
+  background:var(--au-l) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%230a2c2d' d='M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z'/%3E%3C/svg%3E") center/20px no-repeat;
+}
+
+/* النص */
+#voices .qb p{
+  grid-column:1/-1;grid-row:2;margin:22px 0 22px;
+  font-size:clamp(18px,1.6vw,20px);line-height:2;color:#f4f0e4;
+}
+
+/* المتحدّث: خط ذهبي قصير قبل الاسم (كما في الكاتب بالمقالات)، والصفة تحته بمحاذاة الاسم */
+#voices .qb b{grid-column:1/-1;grid-row:3;margin:0;padding-top:18px;border-top:1px solid var(--vo-line);font-size:16.5px;font-weight:700;line-height:1.6;color:#fff}
+#voices .qb b::before{content:"";display:inline-block;width:18px;height:2px;margin-inline-end:10px;vertical-align:middle;background:var(--au)}
+#voices .qb small{grid-column:1/-1;grid-row:4;display:block;margin-top:2px;padding-inline-start:28px;font-size:13.5px;line-height:1.7;color:#c4d0cb}
+
+/* تفاعل: إطار ذهبي أوضح (الرفع والظلّ من القواعد العامة) */
+#voices .qb:hover{border-color:rgba(228,211,154,.62)}
+
+/* ===== ≥ 681px: عمودان (2×2) ===== */
+@media(min-width:681px){
+  #voices .gr{grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
+  #voices .qb{padding:30px}
+  #voices .qb p{font-size:19px}
+}
+
+/* ===== ≥ 1100px: الأربعة في صف واحد، ونص أصغر قليلًا ليناسب عرض البطاقة ===== */
+@media(min-width:1100px){
+  #voices .gr{grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+  #voices .qb{padding:28px 24px 30px;column-gap:12px}
+  #voices .qb p{font-size:17.5px;line-height:1.95}
+  #voices .qb small{font-size:13px}
+}
+
+@media(max-width:680px){
+  #voices{--vo-pad:22px}
+  #voices .gr{margin-top:36px;gap:16px}
+}

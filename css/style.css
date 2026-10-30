@@ -72,8 +72,6 @@ h1 span{color:var(--au)}
 .rd p{max-width:520px;color:var(--mu);margin-top:6px}
 .qt{font-size:clamp(20px,2vw,26px);line-height:1.7;border-inline-start:2px solid var(--au);padding-inline-start:28px;margin:32px 0}
 .qa{font-size:14px;color:#cdd6d3}
-.av{width:64px;height:64px;border-radius:50%;background:var(--g);color:var(--au);display:grid;place-items:center;font-size:26px;font-weight:600;flex:none}
-.g .av{background:var(--c);color:var(--g)}
 .gr{display:grid;gap:44px 32px;grid-template-columns:repeat(3,1fr);margin-top:56px}
 .g4{grid-template-columns:repeat(4,1fr)}
 .g2{grid-template-columns:1fr 1fr}
@@ -310,7 +308,6 @@ header.scr{position:fixed;top:0;background:var(--c);color:var(--ink);border-bott
 .wc{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;margin-top:56px}
 .wcd{text-align:center}
 .wph{aspect-ratio:4/3;width:100%}
-.wb{width:56px;height:56px;margin:-28px auto 14px;display:grid;place-items:center;background:#fff;color:var(--g);font-size:28px;font-style:normal;border-radius:10px;box-shadow:0 8px 22px rgba(10,44,45,.18);position:relative}
 .wcd h3{font-size:18px;font-weight:600;margin-bottom:6px}
 .wcd p{font-size:14px;color:var(--mu)}
 .wl{display:grid;grid-template-columns:1fr 1fr;gap:0 64px;margin-top:64px}

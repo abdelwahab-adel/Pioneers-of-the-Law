@@ -1,0 +1,115 @@
+/* رواد القانون — قسم «مركز المعرفة» #articles (تنسيق فقط، لا تغيير في HTML)
+   المقال الأول مميّز بعرض كامل، ثم ثلاث بطاقات، ثم مقالان أفقيان. يُحمَّل بعد باقي ملفات الـCSS. */
+#articles{--ar-bd:#e3d9bf;--ar-pad:24px;--ar-tint:#fbf6e9}
+
+/* ===== الترويسة: توسيط وخط ذهبي (مثل «لماذا رواد القانون») ===== */
+#articles .lb{display:flex;align-items:center;justify-content:center;text-align:center}
+#articles .lb::after{content:"";display:inline-block;width:26px;height:1px;margin-inline-start:12px;background:var(--au)}
+#articles .h2{text-align:center}
+#articles .h2::after{content:"";display:block;width:56px;height:3px;margin:20px auto 0;background:var(--au);border-radius:2px}
+
+/* ===== الشبكة: عمود واحد على الجوال، وتتدرّج أعلى ===== */
+#articles .gr{grid-template-columns:1fr;gap:24px;margin-top:48px}
+
+/* ===== البطاقة ===== */
+#articles .ar{
+  position:relative;display:flex;flex-direction:column;overflow:hidden;padding:0;
+  background:#fffdf8;border:1px solid var(--ar-bd);border-radius:var(--rad);box-shadow:var(--sh1);
+}
+#articles .ar:hover{border-color:var(--au);box-shadow:var(--sh2);translate:0 -4px}
+
+/* الصورة: بلا إطار ذهبي داخلي، وتعتيم أخف في الأسفل */
+#articles .cover{aspect-ratio:16/9;border-radius:0}
+#articles .cover::after{display:none}
+#articles .cover::before{background-image:linear-gradient(rgba(10,44,45,0),rgba(10,44,45,.4)),var(--r,none),var(--p)}
+
+/* وسم التصنيف فوق الصورة (نفس أسلوب دراسات الحالة) */
+#articles .ar>.cb>em{
+  position:absolute;z-index:3;top:14px;inset-inline-start:14px;padding:3px 14px;border-radius:999px;
+  background:rgba(255,248,237,.95);color:var(--g);font-size:13px;font-weight:600;line-height:1.8;
+  box-shadow:0 2px 10px rgba(10,44,45,.18);
+}
+
+/* جسم البطاقة: التاريخ، العنوان، المقتطف، الكاتب */
+#articles .cb{flex:1;display:flex;flex-direction:column;padding:22px var(--ar-pad) 0}
+#articles .cb>.mm{font-size:13px;color:var(--mu)}
+#articles .ar h3{margin:6px 0 12px;font-size:clamp(21px,1.8vw,24px);line-height:1.5;font-weight:700;color:var(--g)}
+#articles .cb>p{flex:1;margin:0;font-size:14.5px;line-height:1.95;color:#34342f}
+#articles .ar .by{margin-top:16px;font-size:13.5px;font-weight:600;color:#4a4a42}
+#articles .ar .by::before{content:"";display:inline-block;width:18px;height:2px;margin-inline-end:9px;vertical-align:middle;background:var(--au)}
+
+/* ===== «اقرأ المقال كاملاً»: شريط بعرض البطاقة ثم يتمدّد المقال تحته ===== */
+#articles .dt{margin:16px calc(var(--ar-pad)*-1) 0}
+#articles .dt[open]{padding-bottom:var(--ar-pad)}
+#articles .dt>summary{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:52px;
+  padding:0 var(--ar-pad);border:0;border-top:1px solid var(--ar-bd);background:var(--ar-tint);
+  font-size:14.5px;font-weight:700;color:var(--g);text-decoration:none;cursor:pointer;
+  transition:background-color .25s,color .25s;
+}
+#articles .dt[open]>summary{margin-bottom:0}
+#articles .dt>summary:hover{opacity:1;background:#f4ecd4;color:var(--au-d)}
+#articles .dt>summary::after{content:"←";font-size:18px;font-weight:400;line-height:1;transition:translate .3s var(--ease),rotate .3s var(--ease)}
+#articles .dt>summary:hover::after{translate:-5px 0}
+#articles .dt[open]>summary::after{rotate:90deg}
+#articles .dt[open]>summary:hover::after{translate:0 0}
+
+/* نص المقال المفتوح */
+#articles .dt h4{margin:22px var(--ar-pad) 6px;padding-inline-start:12px;border-inline-start:3px solid var(--au);font-family:var(--serif);font-size:18px;font-weight:700;line-height:1.6;color:var(--g)}
+#articles .dt>p{margin:0 var(--ar-pad);font-size:14.5px;line-height:1.95;color:#34342f}
+#articles .dt>a.lk{
+  display:inline-flex;align-items:center;gap:10px;min-height:46px;margin-inline:var(--ar-pad);padding:0 22px;
+  border:0;border-radius:999px;background:var(--g);color:var(--au-l);font-weight:600;text-decoration:none;
+  transition:background-color .25s,color .25s;
+}
+#articles .dt>a.lk:hover{opacity:1;background:var(--au-d);color:#fff}
+
+/* حين يُفتح مقال: لا تتمدّد البطاقات المجاورة فارغة، بل تبقى بحجمها */
+#articles .gr:has(.dt[open]) .ar:not(:has(.dt[open])){align-self:start}
+
+/* ===== ≥ 681px: عمودان، والمقال الأول والأخير أفقيان بعرض كامل ===== */
+@media(min-width:681px){
+  #articles .gr{grid-template-columns:repeat(2,minmax(0,1fr))}
+  #articles .ar:is(:first-child,:last-child){grid-column:1/-1;display:grid;grid-template-columns:minmax(0,var(--ar-img)) minmax(0,1fr);--ar-pad:28px;--ar-img:44%}
+  #articles .ar:is(:first-child,:last-child) .cover{aspect-ratio:auto;min-height:260px}
+  #articles .ar:is(:first-child,:last-child) .cb{padding-top:28px}
+}
+
+/* ===== ≥ 1025px: ست أعمدة — مميّز كامل، ثلاث بطاقات، ثم مقالان أفقيان ===== */
+@media(min-width:1025px){
+  #articles .gr{grid-template-columns:repeat(6,minmax(0,1fr));gap:26px}
+  #articles .ar{grid-column:span 2}
+  #articles .ar:first-child{grid-column:1/-1;--ar-pad:40px;--ar-img:52%}
+  #articles .ar:first-child .cover{min-height:340px}
+  #articles .ar:first-child .cb{padding-top:36px}
+  #articles .ar:first-child h3{font-size:clamp(28px,2.5vw,36px);margin:8px 0 16px}
+  #articles .ar:first-child .cb>p{font-size:16px;line-height:2}
+  #articles .ar:nth-child(n+5){grid-column:span 3;display:grid;grid-template-columns:minmax(0,var(--ar-img)) minmax(0,1fr);--ar-pad:28px;--ar-img:42%}
+  #articles .ar:nth-child(n+5) .cover{aspect-ratio:auto;min-height:260px}
+  #articles .ar:nth-child(n+5) .cb{padding-top:28px}
+}
+
+/* ===== التذييل: الحاشية والملاحظة الداكنة (مثل «لماذا رواد القانون») ===== */
+#articles .fn{max-width:none;margin-top:22px;padding-inline-start:12px;border-inline-start:2px solid var(--au)}
+#articles .ix{
+  position:relative;overflow:hidden;max-width:none;margin-top:36px;padding:28px 34px;color:#fff;border:0;
+  border-inline-start:4px solid var(--au);border-radius:var(--rad);
+  background:linear-gradient(135deg,var(--g),#16403f);box-shadow:var(--sh2);
+}
+#articles .ix::after{content:"§";position:absolute;inset-inline-end:26px;top:50%;translate:0 -50%;font-family:var(--serif);font-size:130px;line-height:1;color:var(--au);opacity:.12;pointer-events:none}
+#articles .ix b{display:block;margin-bottom:6px;font-family:var(--serif);font-size:24px;color:var(--au-l)}
+#articles .ix p{max-width:720px;margin:0;color:rgba(255,255,255,.9);line-height:1.95}
+
+@media(max-width:680px){
+  #articles .ix{padding:22px 20px}
+  #articles .ix::after{font-size:96px}
+}
+
+/* الخط الذهبي الثاني للوسم يرسم نفسه كالأول عند الظهور */
+@media(prefers-reduced-motion:no-preference){
+  #articles .lb.rv::after{width:0;transition:width .9s .25s var(--mo)}
+  #articles .lb.rv.in::after{width:26px}
+}
+@media(prefers-reduced-motion:reduce){
+  #articles .dt>summary,#articles .dt>summary::after,#articles .dt>a.lk{transition:none}
+}

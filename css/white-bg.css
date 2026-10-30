@@ -1,0 +1,19 @@
+/* رواد القانون — خلفية بيضاء (#fff) لأقسام محددة بدل الكريمي.
+   الأقسام: الاستشارة العاجلة (#urgent) · موثوقون من (.tr) · من نحن (#about) · مسيرتنا المهنية (#timeline)
+   · الفريق القانوني (#team) · لماذا رواد القانون (#why) · دراسات الحالة (#cases) · الاعتمادات (#accred)
+   · الأسئلة الشائعة (#faq) · مركز المعرفة (#articles) · تواصل معنا (#contact) · زورونا في الرياض (#location).
+   تُحمَّل آخر ملف CSS، وبمحدِّدات تغلب `.c` و`.c2` و`.urg` و`#location` دون لمس باقي الأقسام.
+   للتراجع احذف سطر ربط هذا الملف من index.html. */
+
+#urgent,
+section.tr,
+#about,
+#timeline,
+#team,
+#why,
+#cases,
+#accred,
+#faq,
+#articles,
+#contact,
+#location{background:#fff}
