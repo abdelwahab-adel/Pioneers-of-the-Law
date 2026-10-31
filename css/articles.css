@@ -1,8 +1,8 @@
-/* رواد القانون — قسم «مركز المعرفة» #articles (تنسيق فقط، لا تغيير في HTML)
+/* إسناد القانونية — قسم «مركز المعرفة» #articles (تنسيق فقط، لا تغيير في HTML)
    المقال الأول مميّز بعرض كامل، ثم ثلاث بطاقات، ثم مقالان أفقيان. يُحمَّل بعد باقي ملفات الـCSS. */
 #articles{--ar-bd:#e3d9bf;--ar-pad:24px;--ar-tint:#fbf6e9}
 
-/* ===== الترويسة: توسيط وخط ذهبي (مثل «لماذا رواد القانون») ===== */
+/* ===== الترويسة: توسيط وخط ذهبي (مثل «لماذا إسناد القانونية») ===== */
 #articles .lb{display:flex;align-items:center;justify-content:center;text-align:center}
 #articles .lb::after{content:"";display:inline-block;width:26px;height:1px;margin-inline-start:12px;background:var(--au)}
 #articles .h2{text-align:center}
@@ -89,7 +89,7 @@
   #articles .ar:nth-child(n+5) .cb{padding-top:28px}
 }
 
-/* ===== التذييل: الحاشية والملاحظة الداكنة (مثل «لماذا رواد القانون») ===== */
+/* ===== التذييل: الحاشية والملاحظة الداكنة (مثل «لماذا إسناد القانونية») ===== */
 #articles .fn{max-width:none;margin-top:22px;padding-inline-start:12px;border-inline-start:2px solid var(--au)}
 #articles .ix{
   position:relative;overflow:hidden;max-width:none;margin-top:36px;padding:28px 34px;color:#fff;border:0;

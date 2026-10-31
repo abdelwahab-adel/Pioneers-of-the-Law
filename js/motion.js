@@ -1,4 +1,4 @@
-/* رواد القانون — حركة إضافية: أزرار مغناطيسية. لا تعمل مع «تقليل الحركة». */
+/* إسناد القانونية — حركة إضافية: أزرار مغناطيسية. لا تعمل مع «تقليل الحركة». */
 (function () {
   'use strict';
   if (!window.matchMedia || matchMedia('(prefers-reduced-motion: reduce)').matches) return;

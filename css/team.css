@@ -1,4 +1,4 @@
-/* رواد القانون — بطاقات الفريق (صور رمزية + معلومات تظهر عند المرور) */
+/* إسناد القانونية — بطاقات الفريق (صور رمزية + معلومات تظهر عند المرور) */
 .team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:40px}
 .team-card{margin:0;transition:translate .45s var(--ease)}
 .team-img-wrap{position:relative;aspect-ratio:4/5;overflow:hidden;border-radius:var(--rad);background:#dbdbdb;box-shadow:var(--sh1);transition:box-shadow .45s var(--ease)}

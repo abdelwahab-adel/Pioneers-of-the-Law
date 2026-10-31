@@ -1,4 +1,4 @@
-/* رواد القانون — طبقة الحركة الاحترافية (تُحمَّل بعد refine.css). كلها داخل no-preference فتتوقف تلقائيًا مع «تقليل الحركة». */
+/* إسناد القانونية — طبقة الحركة الاحترافية (تُحمَّل بعد refine.css). كلها داخل no-preference فتتوقف تلقائيًا مع «تقليل الحركة». */
 @media (prefers-reduced-motion:no-preference){
 :root{--mo:cubic-bezier(.22,.8,.24,1);--md:.6s;interpolate-size:allow-keywords}
 

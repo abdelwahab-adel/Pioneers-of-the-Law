@@ -1,7 +1,8 @@
-/* رواد القانون — خلفية بيضاء (#fff) لأقسام محددة بدل الكريمي.
+/* إسناد القانونية — خلفية بيضاء (#fff) لأقسام محددة بدل الكريمي.
    الأقسام: موثوقون من (.tr) · من نحن (#about) · مسيرتنا المهنية (#timeline)
-   · الفريق القانوني (#team) · لماذا رواد القانون (#why) · دراسات الحالة (#cases) · الاعتمادات (#accred)
-   · الأسئلة الشائعة (#faq) · مركز المعرفة (#articles) · تواصل معنا (#contact) · زورونا في الرياض (#location).
+   · الفريق القانوني (#team) · لماذا إسناد القانونية (#why) · دراسات الحالة (#cases) · الاعتمادات (#accred)
+   · الأسئلة الشائعة (#faq) · مركز المعرفة (#articles) · تواصل معنا (#contact) · زورونا في الرياض (#location)
+   · الشريك المدير (#partner) · منهجية العمل (#method).
    تُحمَّل آخر ملف CSS، وبمحدِّدات تغلب `.c` و`.c2` و`#location` دون لمس باقي الأقسام.
    للتراجع احذف سطر ربط هذا الملف من index.html. */
 
@@ -71,7 +72,7 @@ section.tr,
 #cases .dt>summary{padding:0 18px;border:1px solid #ecdfb4;border-radius:var(--rad-s);background:#fbf6e9;color:var(--g);transition:background-color .25s,border-color .25s,color .25s}
 #cases .dt>summary:hover{background:#fbf6e9}
 
-/* «ماذا يعني لك؟» في «لماذا رواد القانون»: ضباب أخضر فاتح بخط ذهبي على جهة البداية والعنوان بلون الهوية (كان رماديًا مائلًا للكاكي) */
+/* «ماذا يعني لك؟» في «لماذا إسناد القانونية»: ضباب أخضر فاتح بخط ذهبي على جهة البداية والعنوان بلون الهوية (كان رماديًا مائلًا للكاكي) */
 #why .wcd .mn{background:linear-gradient(135deg,#f5f9f7,#e8f1ed);border-inline-start-color:var(--au)}
 #why .wcd .mn b{color:var(--g)}
 
@@ -88,3 +89,33 @@ section.tr,
    لا تغيير في HTML ولا في js/modals.js. للتراجع احذف هذا المقطع. */
 dialog.mdl{background:#fff}
 .mdl-duo::after{border-color:#fff}   /* حلقة السهم بين المربعين بلون خلفية البطاقة الجديد */
+
+/* ===== الشريك المدير (#partner) ومنهجية العمل (#method): خلفية بيضاء بدل الأخضر الداكن (الصنف g يبقى في HTML) =====
+   النصوص والخطوط والأرقام التي كانت فاتحة فوق الداكن صارت داكنة أو ذهبية غامقة فوق الأبيض.
+   للتراجع احذف هذا المقطع كله. */
+#partner,#method{background:#fff;color:var(--ink)}
+#partner :focus-visible,#method :focus-visible{outline-color:var(--au-d)}
+#partner .lb,#method .lb{color:var(--au-d)}
+#partner .h2,#method .h2{color:var(--g)}
+
+/* الشريك المدير */
+#partner .ld{color:#444}
+#partner .qa{color:var(--mu)}
+#partner .yr{color:var(--num)!important}   /* مثل «20+» في «من نحن»؛ كان inline: color:var(--g2) فوق الداكن، و!important لتغلب الـstyle المضمّن */
+#partner .qt{color:var(--g);border-inline-start-color:var(--au)}
+#partner .pph{color:var(--au-d)}
+#partner .pp b{color:var(--g)}
+#partner .pp span{color:#444}
+
+/* منهجية العمل */
+#method{--m-gold:var(--au-d);--m-rule:#e3d9bf}
+#method .mt h3{color:var(--g)}
+#method .mt p{color:#444}
+#method .mt .xp{border-top-color:#d6c9a0;color:#34342f}
+#method .ix{background:linear-gradient(135deg,#f5f9f7,#e8f1ed);border-inline-start-color:var(--au)}
+#method .ix b{color:var(--g)}
+#method .ix p{color:#34342f}
+@media(max-width:1100px){
+  #method .mt>div:not(:last-child)::after{background:rgba(184,170,102,.6)}
+  #method .mt .nu{background:#fff}
+}

@@ -1,4 +1,4 @@
-/* رواد القانون — زر «العودة لأعلى الصفحة» (ظهوره يضبطه main.js عبر الصنف sc-fb على <html>) */
+/* إسناد القانونية — زر «العودة لأعلى الصفحة» (ظهوره يضبطه main.js عبر الصنف sc-fb على <html>) */
 (function () {
   'use strict';
   var b = document.querySelector('.up');

@@ -1,4 +1,4 @@
-/* رواد القانون — الصفحات المستقلة: بانر الصفحة، بطاقات المجالات، وصفحة المجال. يُحمَّل آخر ملف. */
+/* إسناد القانونية — الصفحات المستقلة: بانر الصفحة، بطاقات المجالات، وصفحة المجال. يُحمَّل آخر ملف. */
 .ph{position:relative;isolation:isolate;overflow:hidden;color:#fff;padding:calc(var(--hh,68px) + 72px) 0 80px;background:linear-gradient(135deg,#061f20,#0a2c2d 55%,#1b4a47)}
 .ph[class*=rp]{background-image:linear-gradient(270deg,rgba(6,31,32,.95),rgba(10,44,45,.8)),var(--r);background-size:cover;background-position:center}
 .ph::after{content:"";position:absolute;inset-inline:0;bottom:0;height:3px;background:linear-gradient(90deg,transparent,var(--au),transparent)}

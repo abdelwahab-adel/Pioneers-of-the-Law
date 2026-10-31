@@ -1,4 +1,4 @@
-/* رواد القانون — main.js */
+/* إسناد القانونية — main.js */
 (function () {
   'use strict';
 
